@@ -18,22 +18,7 @@ public class Purchase {
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// ... instantiate and set order object with items to display
-		
-		Order order = (Order)request.getSession().getAttribute("order");
-		
-		ArrayList<String> itemsList = new ArrayList<String>();
-		
-		itemsList = new ArrayList<String>();
-		
-		itemsList.add("Cupcake");
-		itemsList.add("Buckeye");
-		itemsList.add("Eclair");
-		itemsList.add("Macaron");
-		itemsList.add("Cookie");
-			
-		//System.out.println(itemsList);
-		
-		
+
 		
 		return "OrderEntryForm";
 	}
