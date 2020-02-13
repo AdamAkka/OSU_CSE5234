@@ -8,11 +8,13 @@ public class Order implements Serializable {
     */
    private static final long serialVersionUID = 696089912823266788L;
    
-   private List<Item> items = new ArrayList<Item>();
+   private List<Item> items;
+   
    /**
     * 
     */
    public Order() {
+	   items = new ArrayList<Item>();
    }
    /**
     * @param items

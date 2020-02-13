@@ -7,6 +7,8 @@
 <title>Confirmation</title>
 </head>
 <body>
-		This is the Confirmation -- jsp file.
+		Your order has been submitted successfully. <br/>
+		Thank you! <br/> 
+		
 </body>
 </html>

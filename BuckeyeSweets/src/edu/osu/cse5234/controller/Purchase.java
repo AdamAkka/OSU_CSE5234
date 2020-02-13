@@ -20,11 +20,11 @@ public class Purchase {
 	   
 	  List<Item> items = new ArrayList<Item>();
 	  
-      items.add(new Item("Brownies", "3.99", "3"));
-      items.add(new Item("Cookies", "1.99", "3"));
-      items.add(new Item("Cake", "4.99", "1"));
-      items.add(new Item("Pie", "3.99", "3"));
-      items.add(new Item("Ice Cream", "3.99", "3"));
+      items.add(new Item("Brownie", "3.95", "0"));
+      items.add(new Item("Cookie", "1.95", "0"));
+      items.add(new Item("Eclair", "4.95", "0"));
+      items.add(new Item("Cupcake", "3.95", "0"));
+      items.add(new Item("Buckeye", "2.50", "0"));
       
       Order order = new Order(items);
       request.setAttribute("order", order);
@@ -39,7 +39,8 @@ public class Purchase {
    
    @RequestMapping(path = "/paymentEntry", method = RequestMethod.GET)
    public String viewPaymentEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-      request.setAttribute("paymentInfo", new PaymentInfo());    
+      request.setAttribute("paymentInfo", new PaymentInfo());   
+      
       return "PaymentEntryForm";
    }
    
@@ -62,7 +63,7 @@ public class Purchase {
    @RequestMapping(path = "/viewOrder", method = RequestMethod.GET)
    public String viewOrderForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
       
-      return "viewOrder";
+      return "ViewOrder";
    }
    @RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
    public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) throws Exception  {
