@@ -16,14 +16,16 @@
             <c:forEach items="${order.items}" var="item" varStatus="status">
                 <tr>
                     <td>
-                       ${item.name}<input type="hidden" name="items[${status.index}].name" value="${item.name}" />  
+                       ${item.name}<input type="hidden" name="items[${status.index}].name" value="item.name" />  
                     </td>
                                     
                     <td>$
-                        ${item.price}<input type="hidden" name="items[${status.index}].price" value="${item.price}" />
+                        ${item.price}<input type="hidden" name="items[${status.index}].price" value="item.price" />
                     </td>
                     <td>
-                        <form:input path="items[${status.index}].quantity" />
+                        <!-- <form:input path="items[${status.index}].quantity" /> -->
+                        
+                        <form:input path="item.quantity" />
                     </td>
                 </tr>
             </c:forEach>
