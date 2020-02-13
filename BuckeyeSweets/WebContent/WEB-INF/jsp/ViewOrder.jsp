@@ -22,12 +22,6 @@
 	
 		Order order = (Order)request.getSession().getAttribute("order");
 		
-		//response.getWriter().println("Name: " + order.getCustomerName() + "<br/>");
-		
-		//response.getWriter().println("Email Address: " + order.getEmailAddress() + "<br /><br />");
-		
-		
-
 		List<Item> items = order.getItems();
 		
 //		double totalAmount = 0;
@@ -62,9 +56,18 @@
 			+ "<br />Country: " + shippingInfo.getZip());
 		
 //		response.getWriter().println("<br/><br/> Your Total Is: $" + totalAmount);
-
+		
 	
 	%>
-
+	<br/><br/>
+	<form:form modelAttribute="order" method="post" action="confirmOrder">
+		<table>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="Confirm" />
+				</td>
+			</tr>
+		</table>
+	</form:form>
 
 </body>

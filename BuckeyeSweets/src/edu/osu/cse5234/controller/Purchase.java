@@ -67,10 +67,8 @@ public class Purchase {
    }
    @RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
    public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) throws Exception  {
-      
-      //request.getSession().setAttribute("orderConfirmation", orderConfirmation);
-      
-      return "redirect:/purchase/confirmation";
+    
+      return "redirect:/purchase/viewConfirmation";
    }
    @RequestMapping(path = "/viewConfirmation", method = RequestMethod.GET)
    public String viewConfirmationForm(HttpServletRequest request, HttpServletResponse response) throws Exception {

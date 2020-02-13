@@ -7,8 +7,9 @@
 <title>Confirmation</title>
 </head>
 <body>
-		Your order has been submitted successfully. <br/>
+		<br/><br/>
+		<p> Your order has been submitted successfully. <br/><br/><br/>
 		Thank you! <br/> 
-		
+		</p>
 </body>
 </html>
