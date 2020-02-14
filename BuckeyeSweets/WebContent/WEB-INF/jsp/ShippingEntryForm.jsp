@@ -10,47 +10,60 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Shipping Entry Form</title>
+    
+    <style>
+      table {
+      border-collapse:collapse;
+      width: 500px;
+      }
+      td, th { 
+      padding: 10px; 
+      border-bottom: 2px solid red; 
+      text-align: center;
+      }
+    </style>
 </head>
 
 <body>
-
+	<p style="font-style:italic;font-size: 1.5em;"> Please enter your shipping information here:</p> <br/>
+	
     <form:form modelAttribute="shippingInfo" method="post" action="submitShipping">
         <table>
             <tr>
                 <td>Name</td>
                 <td>
-                    <form:input path="${shippingInfo.name}" />
+                    <form:input path="name" />
                 </td>
             </tr>
             <tr>
                 <td>Address (Line 1)</td>
                 <td>
-                    <form:input path="${shippingInfo.addressLine1}" />
+                    <form:input path="addressLine1" />
                 </td>
             </tr>
             <tr>
                 <td>Address (Line 2)</td>
                 <td>
-                    <form:input path="${shippingInfo.addressLine2}" />
+                    <form:input path="addressLine2" />
                 </td>
             </tr>
 
             <tr>
                 <td>City</td>
                 <td>
-                    <form:input path="${shippingInfo.city}" />
+                    <form:input path="city" />
                 </td>
             </tr>
             <tr>
                 <td>State</td>
                 <td>
-                    <form:input path="${shippingInfo.state}" />
+                    <form:input path="state" />
                 </td>
             </tr>
             <tr>
                 <td>Zip Code</td>
                 <td>
-                    <form:input path="${shippingInfo.zip}" />
+                    <form:input path="zip" />
                 </td>
             </tr>
             <tr>

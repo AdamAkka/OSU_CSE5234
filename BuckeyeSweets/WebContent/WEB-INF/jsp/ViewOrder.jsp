@@ -24,6 +24,17 @@
 		
 		List<Item> items = order.getItems();
 		
+		response.getWriter().println("<br/>Your items are:" + items + "<br/>");
+		
+		response.getWriter().println("<br/>The items list size is:" + items.size() + "<br/>");
+		
+		double totalAmount = 0;
+		for (int i = 0; i < items.size(); i++) {
+	
+			response.getWriter().println("<br/>Your items are:" + items.get(i) + "<br/>");
+
+		}
+		
 //		double totalAmount = 0;
 //		for (int i = 0; i < items.size(); i++) {
 //			Item items = items.get(i);
