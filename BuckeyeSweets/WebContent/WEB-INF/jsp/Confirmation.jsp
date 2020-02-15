@@ -3,13 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css" >
+	<meta charset="ISO-8859-1">
 <title>Confirmation</title>
 </head>
-<body>
+	<body>
+		<jsp:include page="header.jsp"/><br/>
 		<br/><br/>
 		<p> Your order has been submitted successfully. <br/><br/><br/>
 		Thank you! <br/> 
 		</p>
-</body>
+	</body>
+		<jsp:include page="footer.jsp"/>
 </html>

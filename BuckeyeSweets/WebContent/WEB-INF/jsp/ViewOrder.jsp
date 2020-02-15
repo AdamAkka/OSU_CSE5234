@@ -12,44 +12,48 @@
 <html>
 
 <head>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css" >
     <meta charset="ISO-8859-1">
     <title>View Order</title>
 </head>
 
 <body>
-	<%
-		response.getWriter().println("<br/>Order Summary :<br/><br/>");
-	
-		Order order = (Order)request.getSession().getAttribute("order");
-		
-		List<Item> items = order.getItems();
-		
-		response.getWriter().println("<br/>Your items are:" + items + "<br/>");
-		
-		response.getWriter().println("<br/>The items list size is:" + items.size() + "<br/>");
-		
-		double totalAmount = 0;
-		for (int i = 0; i < items.size(); i++) {
-	
-			response.getWriter().println("<br/>Your items are:" + items.get(i) + "<br/>");
 
-		}
+	<%
+		response.getWriter().println("<br/>Your Order Summary :<br/><br/><br/>");
+//		Order order = (Order)request.getSession().getAttribute("order");
+//		List<Item> items = order.getItems();
+//		response.getWriter().println("<br/>Your items are:" + order.getItems() + "<br/>");
+//		response.getWriter().println("<br/>Your items are:" + items + "<br/>");
+//		response.getWriter().println("<br/>The items list size is:" + items.size() + "<br/>");
 		
 //		double totalAmount = 0;
 //		for (int i = 0; i < items.size(); i++) {
-//			Item items = items.get(i);
-//			if (items.getQuantity() > 0) {
-//			totalAmount += items.getPrice() * items.getQuantity();
-//				response.getWriter().println("Item Name: " + items.getName() 
-//					+ ", Price Per Item: " + lineItem.getPrice()
-//					+ ", Quantity: " + items.getQuantity() + "<br />");
-//			}
+	
+//			response.getWriter().println("<br/>Your items are:" + items.get(i) + "<br/>");
+//		}
+///////////////////////////////////////////////////////////////////////////////	
+//		response.getWriter().println("<br />Your Order Summary Is As Follows:<br /><br />");
+		Order order = (Order)request.getSession().getAttribute("order");
+		
+		List<Item> lineItemList = order.getItems();
+//		response.getWriter().println(lineItemList.getName() + "<br/> <br/>");
+		
+//		double totalAmount = 0;
+		for (int i = 0; i < lineItemList.size(); i++) {
+			Item lineItem = lineItemList.get(i);
+//			if (lineItem.getQuantity() > 0) {
+//			totalAmount += lineItem.getPrice() * lineItem.getQuantity();
+				response.getWriter().println("Item Name: " + lineItem.getName() 
+					+ ", Price Per Item: " + lineItem.getPrice()
+					+ ", Quantity: " + lineItem.getQuantity() + "<br />");
+			}
 //		}
 		
-		
+////////////////////////////////////////////////////////////////////////////////		
 		PaymentInfo paymentInfo = (PaymentInfo)request.getSession().getAttribute("paymentInfo");
 		
-		response.getWriter().println("<br/>Your Payment Information:"
+		response.getWriter().println("<br/>Your Payment Information: <br/><br/>"
 			+ "<br/>Credit Card Number: " + paymentInfo.getCardNumber()
 			+ "<br/>Expiration Date: " + paymentInfo.getExpirationDate()
 			+ "<br/>CVV Code: " + paymentInfo.getCcvCode()
@@ -58,7 +62,7 @@
 		
 		ShippingInfo shippingInfo = (ShippingInfo)request.getSession().getAttribute("shippingInfo");
 		
-		response.getWriter().println("<br/><br/>Your Shipping Information:"
+		response.getWriter().println("<br/><br/><br/>Your Shipping Information: <br/><br/>"
 			+ "<br />Name: " + shippingInfo.getName()
 			+ "<br />Address Line 1: " + shippingInfo.getAddressLine1()
 			+ "<br />Address Line 2: " + shippingInfo.getAddressLine2()
@@ -80,5 +84,7 @@
 			</tr>
 		</table>
 	</form:form>
+	
+	<jsp:include page="footer.jsp"/>
 
 </body>

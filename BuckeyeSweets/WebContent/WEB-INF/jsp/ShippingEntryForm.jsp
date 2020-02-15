@@ -8,9 +8,10 @@
 <html>
 
 <head>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css" >
     <meta charset="ISO-8859-1">
     <title>Shipping Entry Form</title>
-    
+<!--  
     <style>
       table {
       border-collapse:collapse;
@@ -22,10 +23,12 @@
       text-align: center;
       }
     </style>
+-->
 </head>
 
 <body>
-	<p style="font-style:italic;font-size: 1.5em;"> Please enter your shipping information here:</p> <br/>
+	<jsp:include page="header.jsp"/><br/>
+	<p> Please enter your shipping information here:</p>
 	
     <form:form modelAttribute="shippingInfo" method="post" action="submitShipping">
         <table>
@@ -75,5 +78,5 @@
         </table>
     </form:form>
 </body>
-
+	<jsp:include page="footer.jsp"/>
 </html>

@@ -5,8 +5,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css" >
 		<meta charset="ISO-8859-1">
 			<title>Order Entry Form</title>
+<!-- 
 	<style>
       table {
       border-collapse:collapse;
@@ -17,8 +19,11 @@
       text-align: center;
       }
     </style>
+-->
 	</head>
 		<body>
+		<jsp:include page="header.jsp"/><br/>
+		<p>Please Select The Items and Quantities Below:</p>
 			<form:form modelAttribute="order" method="post" action="purchase/submitItems">
 				<table>
 					<tr>
@@ -29,13 +34,11 @@
 					<c:forEach items="${order.items}" var="item" varStatus="loop">
 						<tr>
 							<td>${item.name}
-								<input type="hidden" name="items.get(${status.index}).name" value="${item.name}" />
-								<!-- <form:input path="items[${loop.index}].name" readonly="true" /> -->
+								<input type="hidden" name="items.get(${loop.index}).name" value="${item.name}" />
 							</td>
 							<td>$
                                 ${item.price}
-								<input type="hidden" name="items.get(${status.index}).price" value="${item.price}" />
-								<!-- <form:input path="items[${loop.index}].price" readonly="true" /> -->
+								<input type="hidden" name="items.get(${loop.index}).price" value="${item.price}" />
 							</td>
 							<td>
 								<form:input path="items[${loop.index}].quantity" style="text-align:center" />
@@ -50,4 +53,6 @@
 				</table>
 			</form:form>
 		</body>
+		
+		<jsp:include page="footer.jsp"/>
 </html>
