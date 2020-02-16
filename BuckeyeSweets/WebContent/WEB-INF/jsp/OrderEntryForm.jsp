@@ -23,9 +23,9 @@
 	</head>
 		<body>
 		<jsp:include page="header.jsp"/><br/>
-		<p>Please Select The Items and Quantities Below:</p>
+		<h2 align="center"> Please select the items and quantities below:</h2>
 			<form:form modelAttribute="order" method="post" action="purchase/submitItems">
-				<table>
+				<table class="center">
 					<tr>
 						<th>Name</th>
 						<th>Price</th>
@@ -45,12 +45,17 @@
 							</td>
 						</tr>
 					</c:forEach>
+
+				</table>
+
 					<tr>
-						<td colspan="1">
-							<input type="submit" value="Purchase">
+						<td colspan="2">
+							<br/>
+							<input type="submit" value="Purchase" class="button">
 						</td>
 					</tr>
-				</table>
+						
+				
 			</form:form>
 		</body>
 		

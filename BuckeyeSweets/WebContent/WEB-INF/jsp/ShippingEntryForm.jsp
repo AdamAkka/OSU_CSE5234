@@ -28,10 +28,10 @@
 
 <body>
 	<jsp:include page="header.jsp"/><br/>
-	<p> Please enter your shipping information here:</p>
+	<h2 align="center"> Please enter your shipping information here:</h2>
 	
     <form:form modelAttribute="shippingInfo" method="post" action="submitShipping">
-        <table>
+        <table class="center">
             <tr>
                 <td>Name</td>
                 <td>
@@ -69,13 +69,15 @@
                     <form:input path="zip" />
                 </td>
             </tr>
+        </table>
+        
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="Submit Shipping Information">
+                <br/>
+                    <input type="submit" value="Submit Shipping Information" class="button">
                 </td>
             </tr>
 
-        </table>
     </form:form>
 </body>
 	<jsp:include page="footer.jsp"/>

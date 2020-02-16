@@ -10,9 +10,9 @@
 	<body>
 		<jsp:include page="header.jsp"/><br/>
 		<br/><br/>
-		<p> Your order has been submitted successfully. <br/><br/><br/>
+		<h2> Your order has been submitted successfully. <br/><br/>
 		Thank you! <br/> 
-		</p>
+		</h2>
 	</body>
 		<jsp:include page="footer.jsp"/>
 </html>

@@ -10,8 +10,8 @@ public class Item implements Serializable {
 	private static final long serialVersionUID = -238066108300505539L;
 	
 	private String name;
-	private String price;
-	private String quantity;
+	private Double price;
+	private Integer quantity;
 	/**
 	 * 
 	 */
@@ -24,7 +24,7 @@ public class Item implements Serializable {
 	 * @param price
 	 * @param quantity
 	 */
-	public Item(String name, String price, String quantity) {
+	public Item(String name, Double price, Integer quantity) {
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
@@ -47,28 +47,28 @@ public class Item implements Serializable {
 	/**
 	 * @return the price
 	 */
-	public String getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
 	/**
 	 * @param price the price to set
 	 */
-	public void setPrice(String price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
 	/**
 	 * @return the quantity
 	 */
-	public String getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public void setQuantity(String quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 	

@@ -28,10 +28,10 @@
 
 <body>
 	<jsp:include page="header.jsp"/><br/>
-	<p> Please enter your payment information here:</p> <br/>
+	<h2 align="center"> Please enter your payment information here:</h2>
 	
     <form:form modelAttribute="paymentInfo" method="post" action="submitPayment">
-        <table>
+        <table class="center">
             <tr>
                 <td>Card Number</td>
                 <td>
@@ -57,13 +57,16 @@
                     <form:input path="cardHolderName" />
                 </td>
             </tr>
+
+        </table>
+
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="Submit Payment">
+                	<br/>
+                    <input type="submit" value="Submit Payment" class="button">
                 </td>
             </tr>
 
-        </table>
     </form:form>
 </body>
 	<jsp:include page="footer.jsp"/>

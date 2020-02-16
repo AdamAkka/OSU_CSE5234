@@ -17,10 +17,10 @@
     <title>View Order</title>
 </head>
 
-<body>
+<body style="text-align:center">
 
 	<%
-		response.getWriter().println("<br/>Your Order Summary :<br/><br/><br/>");
+		response.getWriter().println("<h1>Your Order Summary :</h1>");
 //		Order order = (Order)request.getSession().getAttribute("order");
 //		List<Item> items = order.getItems();
 //		response.getWriter().println("<br/>Your items are:" + order.getItems() + "<br/>");
@@ -33,28 +33,29 @@
 //			response.getWriter().println("<br/>Your items are:" + items.get(i) + "<br/>");
 //		}
 ///////////////////////////////////////////////////////////////////////////////	
-//		response.getWriter().println("<br />Your Order Summary Is As Follows:<br /><br />");
+
 		Order order = (Order)request.getSession().getAttribute("order");
 		
 		List<Item> lineItemList = order.getItems();
-//		response.getWriter().println(lineItemList.getName() + "<br/> <br/>");
-		
+
 //		double totalAmount = 0;
 		for (int i = 0; i < lineItemList.size(); i++) {
-			Item lineItem = lineItemList.get(i);
-//			if (lineItem.getQuantity() > 0) {
-//			totalAmount += lineItem.getPrice() * lineItem.getQuantity();
-				response.getWriter().println("Item Name: " + lineItem.getName() 
-					+ ", Price Per Item: " + lineItem.getPrice()
-					+ ", Quantity: " + lineItem.getQuantity() + "<br />");
+			Item items = lineItemList.get(i);
+			if (items.getQuantity() > 0) {
+//			totalAmount += items.getPrice() * items.getQuantity();
+				response.getWriter().println("Item Name: " + items.getName() 
+					+ ", Price Per Item: " + items.getPrice()
+					+ ", Quantity: " + items.getQuantity() + "<br />");
 			}
-//		}
+		}
+		
+//		response.getWriter().println("<br/><br/> Your total is: $" + totalAmount + "<br />");
 		
 ////////////////////////////////////////////////////////////////////////////////		
 		PaymentInfo paymentInfo = (PaymentInfo)request.getSession().getAttribute("paymentInfo");
 		
-		response.getWriter().println("<br/>Your Payment Information: <br/><br/>"
-			+ "<br/>Credit Card Number: " + paymentInfo.getCardNumber()
+		response.getWriter().println("<br/><h2>Your Payment Information: </h2>"
+			+ "Credit Card Number: " + paymentInfo.getCardNumber()
 			+ "<br/>Expiration Date: " + paymentInfo.getExpirationDate()
 			+ "<br/>CVV Code: " + paymentInfo.getCcvCode()
 			+ "<br/>Card Holder Name: " + paymentInfo.getCardHolderName());
@@ -62,13 +63,13 @@
 		
 		ShippingInfo shippingInfo = (ShippingInfo)request.getSession().getAttribute("shippingInfo");
 		
-		response.getWriter().println("<br/><br/><br/>Your Shipping Information: <br/><br/>"
-			+ "<br />Name: " + shippingInfo.getName()
-			+ "<br />Address Line 1: " + shippingInfo.getAddressLine1()
-			+ "<br />Address Line 2: " + shippingInfo.getAddressLine2()
-			+ "<br />City: " + shippingInfo.getCity()
-			+ "<br />State: " + shippingInfo.getState()
-			+ "<br />Country: " + shippingInfo.getZip());
+		response.getWriter().println("<br/><br/><h2>Your Shipping Information: </h2>"
+			+ "Name: " + shippingInfo.getName()
+			+ "<br/>Address (Line 1): " + shippingInfo.getAddressLine1()
+			+ "<br/>Address (Line 2): " + shippingInfo.getAddressLine2()
+			+ "<br/>City: " + shippingInfo.getCity()
+			+ "<br/>State: " + shippingInfo.getState()
+			+ "<br/>Country: " + shippingInfo.getZip());
 		
 //		response.getWriter().println("<br/><br/> Your Total Is: $" + totalAmount);
 		
@@ -76,13 +77,12 @@
 	%>
 	<br/><br/>
 	<form:form modelAttribute="order" method="post" action="confirmOrder">
-		<table>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="Confirm" />
+					<br/>
+					<input type="submit" value="Confirm & Place Order" class="button"/>
 				</td>
 			</tr>
-		</table>
 	</form:form>
 	
 	<jsp:include page="footer.jsp"/>
