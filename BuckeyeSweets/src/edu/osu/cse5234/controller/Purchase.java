@@ -20,11 +20,11 @@ public class Purchase {
 	   
 	  List<Item> items = new ArrayList<Item>();
 	  
-      items.add(new Item("Brownie", "3.95", "0"));
+      items.add(new Item("Brownie", "3.50", "0"));
       items.add(new Item("Cookie", "1.95", "0"));
       items.add(new Item("Eclair", "4.95", "0"));
-      items.add(new Item("Cupcake", "3.95", "0"));
-      items.add(new Item("Buckeye", "2.50", "0"));
+      items.add(new Item("Cupcake", "3.50", "0"));
+      items.add(new Item("Buckeye", "1.50", "0"));
       
       Order order = new Order(items);
       request.setAttribute("order", order);
