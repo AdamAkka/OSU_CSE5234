@@ -19,8 +19,22 @@
 
 <body style="text-align:center">
 
-	<%
-		response.getWriter().println("<h1>Your Order Summary :</h1>");
+	
+    <% 
+    response.getWriter().println("<h1>Your Order Summary :</h1>");
+	Order order = (Order)request.getSession().getAttribute("order"); 
+	List<Item> items = order.getItems();
+
+//    for(int i=0; i < items.size(); i++) {
+//		(items.get(i)).getName();            
+//        (items.get(i)).getPrice();
+        
+//        response.getWriter().println("Item Name: " + (items.get(i)).getName() 
+//		+ ", Price Per Item: " + (items.get(i)).getPrice()
+//		+ ", Quantity: " + (items.get(i)).getQuantity() + "<br/>");
+ //   }
+    
+//		response.getWriter().println("<h1>Your Order Summary :</h1>");
 //		Order order = (Order)request.getSession().getAttribute("order");
 //		List<Item> items = order.getItems();
 //		response.getWriter().println("<br/>Your items are:" + order.getItems() + "<br/>");
@@ -34,18 +48,27 @@
 //		}
 ///////////////////////////////////////////////////////////////////////////////	
 
-		Order order = (Order)request.getSession().getAttribute("order");
+//		Order order = (Order)request.getSession().getAttribute("order");
 		
-		List<Item> lineItemList = order.getItems();
+//		List<Item> items = order.getItems();
+		
+//		Iterator iter = items.iterator();
+		
+//		response.getWriter().println(iter + "<br/><br/>");
+		
+//		while (iter.hasNext()){
+//			Object item = iter.next();
+//			response.getWriter().println(item + "<br/><br/>");		
+//	}
 
-//		double totalAmount = 0;
-		for (int i = 0; i < lineItemList.size(); i++) {
-			Item items = lineItemList.get(i);
-			if (items.getQuantity() > 0) {
-//			totalAmount += items.getPrice() * items.getQuantity();
-				response.getWriter().println("Item Name: " + items.getName() 
-					+ ", Price Per Item: " + items.getPrice()
-					+ ", Quantity: " + items.getQuantity() + "<br />");
+		double totalAmount = 0;
+		for (int i = 0; i < items.size(); i++) {
+			Item item = items.get(i);
+			if (item.getQuantity() > 0) {
+//				totalAmount += items.getPrice() * items.getQuantity();
+				response.getWriter().println("Item Name: " + item.getName() 
+					+ ", Price Per Item: " + item.getPrice()
+					+ ", Quantity: " + item.getQuantity() + "<br />");
 			}
 		}
 		
