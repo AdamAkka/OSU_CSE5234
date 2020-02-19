@@ -23,7 +23,7 @@ public class Purchase {
       items.add(new Item("Brownie", 3.49, 0));
       items.add(new Item("Cookie", 1.99, 0));
       items.add(new Item("Eclair", 4.99, 0));
-      items.add(new Item("Cupcake", 3.49, 0));
+      items.add(new Item("Cupcake", 2.49, 0));
       items.add(new Item("Buckeye", 1.49, 0));
       
       Order order = new Order(items);
