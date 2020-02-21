@@ -3,22 +3,23 @@ package edu.osu.cse5234.controller;
 import java.io.Serializable;
 
 public class Item implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -238066108300505539L;
-	
+
 	private String name;
 	private Double price;
 	private Integer quantity;
+
 	/**
 	 * 
 	 */
-	
+
 	public Item() {
 	}
-	
+
 	/**
 	 * @param name
 	 * @param price
@@ -71,5 +72,5 @@ public class Item implements Serializable {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	
+
 }
