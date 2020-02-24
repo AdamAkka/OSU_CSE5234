@@ -13,7 +13,13 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" /><br />
+	
+	<c:if test="${not empty valid && !valid}">
+	<h3><b>Oooops! Please check the quantities and resubmit!</b></h3>
+	</c:if>
+	
 	<h2 align="center">Please select the items and quantities below:</h2>
+
 	<form:form modelAttribute="order" method="post"
 		action="purchase/submitItems">
 		<table class="center">

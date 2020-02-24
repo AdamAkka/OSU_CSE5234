@@ -1,7 +1,6 @@
 package edu.osu.cse5234.controller;
 
 import java.util.ArrayList;
-//import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +11,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.osu.cse5234.business.OrderProcessingServiceBean;
+import edu.osu.cse5234.business.view.Inventory;
+import edu.osu.cse5234.business.view.InventoryService;
+import edu.osu.cse5234.business.view.Item;
+import edu.osu.cse5234.util.ServiceLocator;
+
 @Controller
 @RequestMapping("/purchase")
 public class Purchase {
@@ -19,18 +24,35 @@ public class Purchase {
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		// ... instantiate and set order object with items to display
+		InventoryService inventoryService = ServiceLocator.getInventoryService();
+		Inventory inventory = inventoryService.getAvailableInventory();
+		List<Item> itemList = inventory.getItemList();
 
-		List<Item> items = new ArrayList<Item>();
+// Change <Item> to <LineItem> (for lab 8, class is already created).	
+		List<Item> oneItemList = new ArrayList<Item>();
 
-		items.add(new Item("Brownie", 3.49, 0));
-		items.add(new Item("Cookie", 1.99, 0));
-		items.add(new Item("Eclair", 4.99, 0));
-		items.add(new Item("Cupcake", 2.49, 0));
-		items.add(new Item("Buckeye", 1.49, 0));
+		for (Item item : itemList) {
+			Item oneItem = new Item(item);
+			oneItemList.add(oneItem);
+		}
 
-		Order order = new Order(items);
-		request.setAttribute("order", order);
+		Order order = (Order) request.getSession().getAttribute("order");
+
+		order.setItems(oneItemList);
+		request.getSession().setAttribute("order", order);
+
+// 		... instantiate and set order object with items to display
+
+//		List<Item> items = new ArrayList<Item>();
+
+//		items.add(new Item("Brownie", 3.49, 0));
+//		items.add(new Item("Cookie", 1.99, 0));
+//		items.add(new Item("Eclair", 4.99, 0));
+//		items.add(new Item("Cupcake", 2.49, 0));
+//		items.add(new Item("Buckeye", 1.49, 0));
+
+//		Order order = new Order(items);
+//		request.setAttribute("order", order);
 
 		return "OrderEntryForm";
 	}
@@ -38,7 +60,20 @@ public class Purchase {
 	@RequestMapping(path = "/submitItems", method = RequestMethod.POST)
 	public String submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
 		request.getSession().setAttribute("order", order);
-		return "redirect:/purchase/paymentEntry";
+
+		OrderProcessingServiceBean orderProcessingServiceBean = ServiceLocator.getOrderProcessingService();
+
+		if (orderProcessingServiceBean.validateItemAvailability(order)) {
+
+			request.getSession().setAttribute("valid", true);
+			return "redirect:/purchase/paymentEntry";
+
+		} else {
+
+			request.getSession().setAttribute("valid", false);
+			return "redirect:/";
+		}
+
 	}
 
 	@RequestMapping(path = "/paymentEntry", method = RequestMethod.GET)

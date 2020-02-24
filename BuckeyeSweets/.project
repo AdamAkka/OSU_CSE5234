@@ -3,6 +3,7 @@
 	<name>BuckeyeSweets</name>
 	<comment></comment>
 	<projects>
+		<project>BuckeyeSweets-InventoryManagement-EJBClient</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
