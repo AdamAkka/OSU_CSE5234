@@ -1,0 +1,49 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	text-align: center;
+}
+
+h1 {
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	font-size: 65px;
+	text-align: center;
+	background-color: #c0c0c0;
+	color: #800040;
+	vertical-align: middle;
+	align-items: center;
+	justify-content: center;
+	border-radius: 30%;
+}
+
+h3 {
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	font-size: 20px;
+	text-align: center;
+	background-color: #804000;
+	color: #ffffff;
+	border-radius: 50%;
+}
+
+.options {
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	background-color: #c0c0c0;
+	color: #000000;
+	border-radius: 25px;
+}
+
+img {
+	border-radius: 50%;
+	vertical-align: middle;
+}

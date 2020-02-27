@@ -1,0 +1,149 @@
+@CHARSET "ISO-8859-1";
+
+html {
+	color: #2E2E2E;
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	background-color: #F2F2F2;
+	max-width: 980px;
+}
+
+body {
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+.header {
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	background-color: #F2F2F2;
+	color: #424242;
+}
+
+h2 {
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	font-size: 30px;
+}
+
+.body {
+	margin: 10px;
+}
+
+.footer {
+	clear: both;
+	position: inherit;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	height: 20px;
+	background-color: #808080;
+	color: #fff;
+}
+
+.prodheading {
+	width: 100%;
+	height: 20px;
+	background-color: #808080;
+	color: #fff;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.prodContainer {
+	position: inherit;
+	height: auto;
+	float: left;
+}
+
+table {
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	border: 1px solid black;
+	width: 80%;
+	margin-top: 20px;
+	text-align: middle;
+}
+
+table.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td, td.center-col {
+	height: 40px;
+}
+
+td.center-col {
+	text-align: center;
+}
+
+td.right-col {
+	text-align: right;
+	padding-right: 15px;
+}
+
+th {
+	color: #424242;
+	border: 1pt solid #808080;
+	border: 1px solid black;
+}
+
+td.tot {
+	color: #424242;
+	border: 1pt solid #808080;
+}
+
+.tableContainer {
+	padding-left: 20px;
+}
+
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	width: auto;
+}
+
+.button-bar {
+	float: left;
+	clear: both;
+}
+
+.explanation {
+	padding-left: 10px;
+	font-size: x-small;
+}
+
+.confirmation {
+	text-align: center;
+}
+
+img {
+	border-radius: 50%;
+}
+
+.button {
+	background-color: #804040;
+	border-radius: 25%;
+	color: white;
+	font-family: Calibri, Montserrat, Candara, Segoe, Segoe UI, Optima,
+		Arial, sans-serif;
+	font-weight: bold;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+input[type=text] {
+	width: 70%;
+}
