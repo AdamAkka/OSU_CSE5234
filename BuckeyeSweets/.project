@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>BuckeyeSweets-InventoryManagement-EJBClient</project>
+		<project>BuckeyeSweets-InventoryManagement-EJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -29,16 +29,16 @@ public class Purchase {
 		List<Item> itemList = inventory.getItemList();
 
 // Change <Item> to <LineItem> (for lab 8, class is already created).	
-		List<Item> oneItemList = new ArrayList<Item>();
+		List<Item> myItemList = new ArrayList<Item>();
 
 		for (Item item : itemList) {
 			Item oneItem = new Item(item);
-			oneItemList.add(oneItem);
+			myItemList.add(oneItem);
 		}
 
 		Order order = (Order) request.getSession().getAttribute("order");
 
-		order.setItems(oneItemList);
+		order.setItems(myItemList);
 		request.getSession().setAttribute("order", order);
 
 // 		... instantiate and set order object with items to display
@@ -111,6 +111,12 @@ public class Purchase {
 
 	@RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
 	public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) throws Exception {
+
+		OrderProcessingServiceBean orderProcessingServiceBean = ServiceLocator.getOrderProcessingService();
+
+		String confirmationCode = orderProcessingServiceBean.processOrder(order);
+
+		request.getSession().setAttribute("confirmationCode", confirmationCode);
 
 		return "redirect:/purchase/viewConfirmation";
 	}
