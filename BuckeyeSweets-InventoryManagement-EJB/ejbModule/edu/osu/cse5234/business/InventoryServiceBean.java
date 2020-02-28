@@ -36,7 +36,7 @@ public class InventoryServiceBean implements InventoryService {
 		items.add(new Item("Buckeye", 1.49, 0));
 		items.add(new Item("Cake", 15.99, 0));
 
-		return (Inventory) items;
+		return new Inventory(items);
 	}
 
 	@Override
