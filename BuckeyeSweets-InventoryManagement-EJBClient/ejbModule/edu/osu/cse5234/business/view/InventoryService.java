@@ -6,7 +6,7 @@ import javax.ejb.Remote;
 
 @Remote
 public interface InventoryService {
-
+	// check if item is available.
 	public Inventory getAvailableInventory();
 
 	public boolean validateQuantity(List<Item> items);

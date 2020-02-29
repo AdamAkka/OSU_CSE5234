@@ -20,8 +20,7 @@ public class ServiceLocator {
 	public static InventoryService getInventoryService() {
 		try {
 			return (InventoryService) InitialContext.doLookup(
-					// "java:global/BuckeyeSweets-InventoryManagement-EJBEAR/BuckeyeSweets-InventoryManagement-EJB/InventoryServiceBean!"
-					// + "edu.osu.cse5234.business.view.InventoryService");
+					// "java:global/BuckeyeSweets-InventoryManagement-EJBEAR/BuckeyeSweets-InventoryManagement-EJB/InventoryServiceBean!edu.osu.cse5234.business.view.InventoryService");
 
 					"java:global/BuckeyeSweets/InventoryServiceBean!edu.osu.cse5234.business.view.InventoryService");
 

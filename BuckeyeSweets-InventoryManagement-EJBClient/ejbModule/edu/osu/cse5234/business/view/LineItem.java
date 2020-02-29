@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class LineItem implements Serializable {
 
 	/**
-	 * 
 	 */
 	private static final long serialVersionUID = 6836946300494613018L;
 	private String name;
