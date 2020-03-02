@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
+import edu.osu.cse5234.business.view.LineItem;
 
 /**
  * Session Bean implementation class InventoryServiceBean
@@ -40,13 +41,13 @@ public class InventoryServiceBean implements InventoryService {
 	}
 
 	@Override
-	public boolean validateQuantity(List<Item> items) {
+	public boolean validateQuantity(List<LineItem> items) {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
-	public boolean updateInventory(List<Item> items) {
+	public boolean updateInventory(List<LineItem> items) {
 		// TODO Auto-generated method stub
 		return true;
 	}

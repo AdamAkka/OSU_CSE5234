@@ -15,6 +15,7 @@ import edu.osu.cse5234.business.OrderProcessingServiceBean;
 import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
+import edu.osu.cse5234.business.view.LineItem;
 import edu.osu.cse5234.util.ServiceLocator;
 
 @Controller
@@ -23,22 +24,23 @@ public class Purchase {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		Order order = (Order) request.getSession().getAttribute("order");
+		
 		InventoryService inventoryService = ServiceLocator.getInventoryService();
 		Inventory inventory = inventoryService.getAvailableInventory();
 		List<Item> itemList = inventory.getItemList();
 
-// Change <Item> to <LineItem> (for lab 8, class is already created).	
-		List<Item> myItemList = new ArrayList<Item>();
+// Created LineItem
+		
+		List<LineItem> myItemList = new ArrayList<LineItem>();
 
 		for (Item item : itemList) {
-			Item oneItem = new Item(item);
+			LineItem oneItem = new LineItem(item);
 			myItemList.add(oneItem);
 		}
 
-		Order order = (Order) request.getSession().getAttribute("order");
-
 		order.setItems(myItemList);
+
 		request.getSession().setAttribute("order", order);
 
 // 		... instantiate and set order object with items to display

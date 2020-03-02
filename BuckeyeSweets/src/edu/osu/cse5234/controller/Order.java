@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.osu.cse5234.business.view.Item;
+import edu.osu.cse5234.business.view.LineItem;
 
 public class Order implements Serializable {
 
@@ -13,34 +13,34 @@ public class Order implements Serializable {
 	*/
 	private static final long serialVersionUID = 696089912823266788L;
 
-	private List<Item> items;
+	private List<LineItem> items;
 
 	/**
 	* 
 	*/
 	public Order() {
-		items = new ArrayList<Item>();
+		items = new ArrayList<LineItem>();
 	}
 
 	/**
 	 * @param items
 	 */
-	public Order(List<Item> items) {
+	public Order(List<LineItem> items) {
 		this.items = items;
 	}
 
 	/**
 	 * @return the items
 	 */
-	public List<Item> getItems() {
+	public List<LineItem> getItems() {
 		return items;
 	}
 
 	/**
-	 * @param items the items to set
+	 * @param myItemList the items to set
 	 */
-	public void setItems(List<Item> items) {
-		this.items = items;
+	public void setItems(List<LineItem> myItemList) {
+		this.items = myItemList;
 	}
 
 }
