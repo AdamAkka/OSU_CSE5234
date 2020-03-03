@@ -7,6 +7,7 @@
 <%@ page import="edu.osu.cse5234.controller.PaymentInfo"%>
 <%@ page import="edu.osu.cse5234.controller.ShippingInfo"%>
 <%@ page import="edu.osu.cse5234.business.view.Item"%>
+<%@ page import="edu.osu.cse5234.business.view.LineItem"%>
 
 <!DOCTYPE html>
 <html>

@@ -3,17 +3,19 @@ package edu.osu.cse5234.business;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
-import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.InventoryService;
+import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.Item;
 import edu.osu.cse5234.business.view.LineItem;
 
 /**
- * Session Bean implementation class InventoryServiceBean
+ * Session Bean implementation class InventoryBean
  */
 @Stateless
+@Remote(InventoryService.class)
 public class InventoryServiceBean implements InventoryService {
 
 	/**
