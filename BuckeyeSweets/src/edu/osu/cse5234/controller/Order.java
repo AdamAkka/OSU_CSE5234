@@ -13,34 +13,34 @@ public class Order implements Serializable {
 	*/
 	private static final long serialVersionUID = 696089912823266788L;
 
-	private List<LineItem> items;
+	private List<LineItem> lineItems;
 
 	/**
 	* 
 	*/
 	public Order() {
-		items = new ArrayList<LineItem>();
+		lineItems = new ArrayList<LineItem>();
 	}
 
 	/**
 	 * @param items
 	 */
 	public Order(List<LineItem> items) {
-		this.items = items;
+		this.lineItems = items;
 	}
 
 	/**
 	 * @return the items
 	 */
-	public List<LineItem> getItems() {
-		return items;
+	public List<LineItem> getlineItems() {
+		return lineItems;
 	}
 
 	/**
 	 * @param myItemList the items to set
 	 */
-	public void setItems(List<LineItem> myItemList) {
-		this.items = myItemList;
+	public void setlineItems(List<LineItem> myItemList) {
+		this.lineItems = myItemList;
 	}
 
 }

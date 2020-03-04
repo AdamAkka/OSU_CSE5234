@@ -24,50 +24,50 @@
 
 	<%
 		response.getWriter().println("<h1>Your Order Summary :</h1>");
-		Order order = (Order) request.getSession().getAttribute("order");
-		List<Item> items = order.getItems();
+			Order order = (Order) request.getSession().getAttribute("order");
+			List<LineItem> items = order.getlineItems();
 
-		///////////////////////////////////////////////////////////////////////////////	
+			///////////////////////////////////////////////////////////////////////////////	
 
-		//		response.getWriter().println("<b>Item Name	&emsp;	Price Per Item	&emsp;	Quantity</b><br/>");
+			//		response.getWriter().println("<b>Item Name	&emsp;	Price Per Item	&emsp;	Quantity</b><br/>");
 
-		double totalAmount = 0;
-		for (int i = 0; i < items.size(); i++) {
-			Item item = items.get(i);
-			String name = item.getName();
-			Double price = item.getPrice();
-			Integer quantity = item.getQuantity();
+			double totalAmount = 0;
+			for (int i = 0; i < items.size(); i++) {
+		LineItem item = items.get(i);
+		String name = item.getName();
+		Double price = item.getPrice();
+		Integer quantity = item.getQuantity();
 
-			if (item.getQuantity() > 0) {
-				totalAmount += price * quantity;
-				response.getWriter().println("<b>Item Name: </b>" + name + "| <b>Price Per Item: </b>$" + price
-						+ "| <b>Quantity: </b>" + quantity + "<br/>");
-			}
+		if (item.getQuantity() > 0) {
+			totalAmount += price * quantity;
+			response.getWriter().println("<b>Item Name: </b>" + name + "| <b>Price Per Item: </b>$" + price
+					+ "| <b>Quantity: </b>" + quantity + "<br/>");
 		}
+			}
 
-		String total = String.format("%,.2f", totalAmount);
+			String total = String.format("%,.2f", totalAmount);
 
-		response.getWriter().println("<br/><font size=5> Your total is: <b>$" + total + "</font></b><br/>");
-		response.getWriter().println("--------------------------------------------------------------------------");
-		////////////////////////////////////////////////////////////////////////////////		
-		PaymentInfo paymentInfo = (PaymentInfo) request.getSession().getAttribute("paymentInfo");
+			response.getWriter().println("<br/><font size=5> Your total is: <b>$" + total + "</font></b><br/>");
+			response.getWriter().println("--------------------------------------------------------------------------");
+			////////////////////////////////////////////////////////////////////////////////		
+			PaymentInfo paymentInfo = (PaymentInfo) request.getSession().getAttribute("paymentInfo");
 
-		response.getWriter()
-				.println("<br/><h2>Your Payment Information: </h2>" + "<br/><b>Credit Card Number: </b>"
-						+ paymentInfo.getCardNumber() + "<br/><b>Expiration Date: </b>"
-						+ paymentInfo.getExpirationDate() + "<br/><b>CVV Code: </b>" + paymentInfo.getCcvCode()
-						+ "<br/><b>Card Holder Name: </b>" + paymentInfo.getCardHolderName());
-		response.getWriter().println("<br/>-------------------------------------------------");
+			response.getWriter()
+			.println("<br/><h2>Your Payment Information: </h2>" + "<br/><b>Credit Card Number: </b>"
+					+ paymentInfo.getCardNumber() + "<br/><b>Expiration Date: </b>"
+					+ paymentInfo.getExpirationDate() + "<br/><b>CVV Code: </b>" + paymentInfo.getCcvCode()
+					+ "<br/><b>Card Holder Name: </b>" + paymentInfo.getCardHolderName());
+			response.getWriter().println("<br/>-------------------------------------------------");
 
-		ShippingInfo shippingInfo = (ShippingInfo) request.getSession().getAttribute("shippingInfo");
+			ShippingInfo shippingInfo = (ShippingInfo) request.getSession().getAttribute("shippingInfo");
 
-		response.getWriter()
-				.println("<br/><br/><h2>Your Shipping Information: </h2>" + "<br/><b>Name: </b>"
-						+ shippingInfo.getName() + "<br/><b>Address (Line 1): </b>" + shippingInfo.getAddressLine1()
-						+ "<br/><b>Address (Line 2): </b>" + shippingInfo.getAddressLine2() + "<br/><b>City: </b>"
-						+ shippingInfo.getCity() + "<br/><b>State: </b>" + shippingInfo.getState()
-						+ "<br/><b>Country: </b>" + shippingInfo.getZip());
-		response.getWriter().println("<br/>-------------------------------------------------");
+			response.getWriter()
+			.println("<br/><br/><h2>Your Shipping Information: </h2>" + "<br/><b>Name: </b>"
+					+ shippingInfo.getName() + "<br/><b>Address (Line 1): </b>" + shippingInfo.getAddressLine1()
+					+ "<br/><b>Address (Line 2): </b>" + shippingInfo.getAddressLine2() + "<br/><b>City: </b>"
+					+ shippingInfo.getCity() + "<br/><b>State: </b>" + shippingInfo.getState()
+					+ "<br/><b>Country: </b>" + shippingInfo.getZip());
+			response.getWriter().println("<br/>-------------------------------------------------");
 	%>
 	<br />
 	<br />

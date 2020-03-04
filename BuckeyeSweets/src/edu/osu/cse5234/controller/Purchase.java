@@ -42,7 +42,7 @@ public class Purchase {
 			myItemList.add(oneItem);
 		}
 
-		order.setItems(myItemList);
+		order.setlineItems(myItemList);
 
 		request.getSession().setAttribute("order", order);
 
