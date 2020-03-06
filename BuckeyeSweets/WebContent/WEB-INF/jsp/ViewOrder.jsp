@@ -3,11 +3,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.*"%>
-<%@ page import="edu.osu.cse5234.controller.Order"%>
-<%@ page import="edu.osu.cse5234.controller.PaymentInfo"%>
+<%@ page import="edu.osu.cse5234.model.Order"%>
+<%@ page import="edu.osu.cse5234.model.PaymentInfo"%>
 <%@ page import="edu.osu.cse5234.controller.ShippingInfo"%>
 <%@ page import="edu.osu.cse5234.business.view.Item"%>
-<%@ page import="edu.osu.cse5234.business.view.LineItem"%>
+<%@ page import="edu.osu.cse5234.model.LineItem"%>
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,7 @@
 	<%
 		response.getWriter().println("<h1>Your Order Summary :</h1>");
 			Order order = (Order) request.getSession().getAttribute("order");
-			List<LineItem> items = order.getlineItems();
+			List<LineItem> items = order.getMyItemList();
 
 			///////////////////////////////////////////////////////////////////////////////	
 
@@ -41,7 +41,7 @@
 		if (item.getQuantity() > 0) {
 			totalAmount += price * quantity;
 			response.getWriter().println("<b>Item Name: </b>" + name + "| <b>Price Per Item: </b>$" + price
-					+ "| <b>Quantity: </b>" + quantity + "<br/>");
+			+ "| <b>Quantity: </b>" + quantity + "<br/>");
 		}
 			}
 
@@ -54,19 +54,19 @@
 
 			response.getWriter()
 			.println("<br/><h2>Your Payment Information: </h2>" + "<br/><b>Credit Card Number: </b>"
-					+ paymentInfo.getCardNumber() + "<br/><b>Expiration Date: </b>"
-					+ paymentInfo.getExpirationDate() + "<br/><b>CVV Code: </b>" + paymentInfo.getCcvCode()
-					+ "<br/><b>Card Holder Name: </b>" + paymentInfo.getCardHolderName());
+			+ paymentInfo.getCardNumber() + "<br/><b>Expiration Date: </b>"
+			+ paymentInfo.getExpirationDate() + "<br/><b>CVV Code: </b>" + paymentInfo.getCcvCode()
+			+ "<br/><b>Card Holder Name: </b>" + paymentInfo.getCardHolderName());
 			response.getWriter().println("<br/>-------------------------------------------------");
 
 			ShippingInfo shippingInfo = (ShippingInfo) request.getSession().getAttribute("shippingInfo");
 
 			response.getWriter()
 			.println("<br/><br/><h2>Your Shipping Information: </h2>" + "<br/><b>Name: </b>"
-					+ shippingInfo.getName() + "<br/><b>Address (Line 1): </b>" + shippingInfo.getAddressLine1()
-					+ "<br/><b>Address (Line 2): </b>" + shippingInfo.getAddressLine2() + "<br/><b>City: </b>"
-					+ shippingInfo.getCity() + "<br/><b>State: </b>" + shippingInfo.getState()
-					+ "<br/><b>Country: </b>" + shippingInfo.getZip());
+			+ shippingInfo.getName() + "<br/><b>Address (Line 1): </b>" + shippingInfo.getAddressLine1()
+			+ "<br/><b>Address (Line 2): </b>" + shippingInfo.getAddressLine2() + "<br/><b>City: </b>"
+			+ shippingInfo.getCity() + "<br/><b>State: </b>" + shippingInfo.getState()
+			+ "<br/><b>Country: </b>" + shippingInfo.getZip());
 			response.getWriter().println("<br/>-------------------------------------------------");
 	%>
 	<br />

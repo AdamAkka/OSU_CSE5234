@@ -1,6 +1,8 @@
-package edu.osu.cse5234.business.view;
+package edu.osu.cse5234.model;
 
 import java.io.Serializable;
+
+import edu.osu.cse5234.business.view.Item;
 
 public class LineItem implements Serializable {
 

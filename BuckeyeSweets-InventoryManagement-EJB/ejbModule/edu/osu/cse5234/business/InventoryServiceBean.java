@@ -6,10 +6,9 @@ import java.util.List;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
-import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Inventory;
+import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
-import edu.osu.cse5234.business.view.LineItem;
 
 /**
  * Session Bean implementation class InventoryBean
@@ -43,13 +42,13 @@ public class InventoryServiceBean implements InventoryService {
 	}
 
 	@Override
-	public boolean validateQuantity(List<LineItem> items) {
+	public boolean validateQuantity(List<Item> items) {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
-	public boolean updateInventory(List<LineItem> items) {
+	public boolean updateInventory(List<Item> items) {
 		// TODO Auto-generated method stub
 		return true;
 	}

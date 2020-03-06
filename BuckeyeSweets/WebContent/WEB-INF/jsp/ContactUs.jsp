@@ -23,17 +23,17 @@
 		<tr>
 			<td>Special Orders & Events</td>
 			<td>513-111-2233 ext. 100</td>
-			<td>specialorders@buckeyesweets.com</td>
+			<td>special_orders@buckeyesweets.com</td>
 		</tr>
 		<tr>
 			<td>Customer Service</td>
 			<td>513-111-2233 ext. 200</td>
-			<td>customerservice@buckeyesweets.com</td>
+			<td>customer_service@buckeyesweets.com</td>
 		</tr>
 		<tr>
 			<td>Technical Support</td>
 			<td>513-111-2233 ext. 300</td>
-			<td>techsupport@buckeyesweets.com</td>
+			<td>tech_support@buckeyesweets.com</td>
 		</tr>
 	</table>
 

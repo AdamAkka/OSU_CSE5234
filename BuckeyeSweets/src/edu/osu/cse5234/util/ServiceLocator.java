@@ -11,7 +11,7 @@ public class ServiceLocator {
 	public static OrderProcessingServiceBean getOrderProcessingService() {
 		try {
 			return (OrderProcessingServiceBean) InitialContext.doLookup(
-					"java:module/OrderProcessingServiceBean!edu.osu.cse5234.business.OrderProcessingServiceBean");
+					"java:global/BuckeyeSweets/OrderProcessingServiceBean!edu.osu.cse5234.business.OrderProcessingServiceBean");
 		} catch (NamingException ne) {
 			throw new RuntimeException(ne);
 		}
@@ -20,8 +20,8 @@ public class ServiceLocator {
 	public static InventoryService getInventoryService() {
 		try {
 			return (InventoryService) InitialContext.doLookup(
-			"java:global/BuckeyeSweets-InventoryManagement-EJBEAR/BuckeyeSweets-InventoryManagement-EJB/InventoryServiceBean!edu.osu.cse5234.business.view.InventoryService");
-			//"java:global/BuckeyeSweets/InventoryServiceBean!edu.osu.cse5234.business.view.InventoryService");
+					
+					"java:global/BuckeyeSweets/InventoryServiceBean!edu.osu.cse5234.business.view.InventoryService");
 
 		} catch (NamingException ne) {
 			throw new RuntimeException(ne);

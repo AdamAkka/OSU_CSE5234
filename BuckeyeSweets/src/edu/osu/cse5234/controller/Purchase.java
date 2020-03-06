@@ -1,8 +1,5 @@
 package edu.osu.cse5234.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.osu.cse5234.business.OrderProcessingServiceBean;
 import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.InventoryService;
-import edu.osu.cse5234.business.view.Item;
-import edu.osu.cse5234.business.view.LineItem;
+import edu.osu.cse5234.model.Order;
+import edu.osu.cse5234.model.PaymentInfo;
+import edu.osu.cse5234.util.Converter;
 import edu.osu.cse5234.util.ServiceLocator;
 
 @Controller
@@ -24,40 +22,16 @@ public class Purchase {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		Order order = (Order) request.getSession().getAttribute("order");
-		if (order == null) {
-			order = new Order();
-		}
 		
+		Order order = new Order();
+	
 		InventoryService inventoryService = ServiceLocator.getInventoryService();
 		Inventory inventory = inventoryService.getAvailableInventory();
-		List<Item> itemList = inventory.getItemList();
-
-// Created LineItem
 		
-		List<LineItem> myItemList = new ArrayList<LineItem>();
 
-		for (Item item : itemList) {
-			LineItem oneItem = new LineItem(item);
-			myItemList.add(oneItem);
-		}
+		order.setMyItemList(Converter.convert (inventory.getItemList()));
 
-		order.setlineItems(myItemList);
-
-		request.getSession().setAttribute("order", order);
-
-// 		... instantiate and set order object with items to display
-
-//		List<Item> items = new ArrayList<Item>();
-
-//		items.add(new Item("Brownie", 3.49, 0));
-//		items.add(new Item("Cookie", 1.99, 0));
-//		items.add(new Item("Eclair", 4.99, 0));
-//		items.add(new Item("Cupcake", 2.49, 0));
-//		items.add(new Item("Buckeye", 1.49, 0));
-
-//		Order order = new Order(items);
-//		request.setAttribute("order", order);
+		request.setAttribute("order", order);
 
 		return "OrderEntryForm";
 	}

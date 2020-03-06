@@ -4,7 +4,8 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import edu.osu.cse5234.business.view.InventoryService;
-import edu.osu.cse5234.controller.Order;
+import edu.osu.cse5234.model.Order;
+import edu.osu.cse5234.util.Converter;
 import edu.osu.cse5234.util.ServiceLocator;
 
 /**
@@ -31,6 +32,6 @@ public class OrderProcessingServiceBean {
 	public boolean validateItemAvailability(Order order) {
 
 		InventoryService inventoryService = ServiceLocator.getInventoryService();
-		return inventoryService.validateQuantity(order.getlineItems());
+		return inventoryService.validateQuantity(Converter.converting(order.getMyItemList()));
 	}
 }

@@ -9,8 +9,8 @@ public interface InventoryService {
 	// check if item is available.
 	public Inventory getAvailableInventory();
 
-	public boolean validateQuantity(List<LineItem> list);
+	public boolean validateQuantity(List<Item> items);
 
-	public boolean updateInventory(List<LineItem> items);
+	public boolean updateInventory(List<Item> items);
 
 }
