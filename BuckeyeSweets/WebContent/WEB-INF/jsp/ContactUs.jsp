@@ -14,14 +14,14 @@
 	<h2>Contact Us</h2>
 	<br />
 
-	<table align=center>
+	<table style="margin: 0 auto;">
 		<tr>
 			<th>Service</th>
 			<th>Telephone #</th>
 			<th>Email Address</th>
 		</tr>
 		<tr>
-			<td>Special Orders & Events</td>
+			<td>Special Orders &amp; Events</td>
 			<td>513-111-2233 ext. 100</td>
 			<td>special_orders@buckeyesweets.com</td>
 		</tr>

@@ -1,5 +1,7 @@
 package edu.osu.cse5234.business;
 
+import java.util.Random;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
@@ -25,8 +27,13 @@ public class OrderProcessingServiceBean {
 
 	public String processOrder(Order order) {
 
-		return null; // FOR NOW
-		// ...
+		int maximum = 99999999;
+		int minimum = 10000000;
+		Random random = new Random();
+		int myRandomNumber = random.nextInt(maximum - minimum + 1) + minimum;
+		return String.valueOf(myRandomNumber);
+
+
 	}
 
 	public boolean validateItemAvailability(Order order) {

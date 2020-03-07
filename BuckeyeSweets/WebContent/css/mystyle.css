@@ -147,3 +147,8 @@ img {
 input[type=text] {
 	width: 70%;
 }
+
+#confirmation{
+	background-color: #0080c0;
+	
+}
