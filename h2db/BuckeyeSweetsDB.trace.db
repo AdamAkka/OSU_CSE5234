@@ -1,0 +1,132 @@
+2020-03-10 21:18:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "Buckeye" not found; SQL statement:
+UPDATE ITEM
+SET ITEM_NUMBER = 107
+WHERE NAME="Buckeye" [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:163)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:145)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:191)
+	at org.h2.command.dml.Update.prepare(Update.java:266)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+2020-03-10 21:20:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEM" already exists; SQL statement:
+CREATE TABLE ITEM (ID int auto_increment primary key, ITEM_NUMBER int, NAME varchar(255), DESCRIPTION varchar(255), AVAILABLE_QUANTITY int, UNIT_PRICE double) [42101-200]
+2020-03-10 21:20:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "'
+
+SELECT * FROM ITEM;
+
+UPDATE ITEM
+SET DESCRIPTION = 'Chocolate chip cookies[*]'
+WHERE ITEM_NUMBER=101;"; SQL statement:
+'
+
+SELECT * FROM ITEM;
+
+UPDATE ITEM
+SET DESCRIPTION = 'Chocolate chip cookies'
+WHERE ITEM_NUMBER=101; [42000-200]
+2020-03-10 21:20:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "'
+
+SELECT * FROM ITEM;
+
+UPDATE ITEM
+SET DESCRIPTION = 'Chocolate chip cookies[*]'
+WHERE ITEM_NUMBER=101;"; SQL statement:
+'
+
+SELECT * FROM ITEM;
+
+UPDATE ITEM
+SET DESCRIPTION = 'Chocolate chip cookies'
+WHERE ITEM_NUMBER=101; [42000-200]
+2020-03-10 21:21:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEM" already exists; SQL statement:
+CREATE TABLE ITEM (ID int auto_increment primary key, ITEM_NUMBER int, NAME varchar(255), DESCRIPTION varchar(255), AVAILABLE_QUANTITY int, UNIT_PRICE double) [42101-200]
+2020-03-10 21:21:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]'"; SQL statement:
+' [42000-200]
+2020-03-10 21:21:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "'
+
+SELECT * FROM ITEM;
+
+UPDATE ITEM
+SET DESCRIPTION = 'Chocolate chip cookies[*]'
+WHERE ITEM_NUMBER=101;"; SQL statement:
+'
+
+SELECT * FROM ITEM;
+
+UPDATE ITEM
+SET DESCRIPTION = 'Chocolate chip cookies'
+WHERE ITEM_NUMBER=101; [42000-200]
+2020-03-10 21:21:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]'
+
+SELECT * FROM ITEM;"; SQL statement:
+'
+
+SELECT * FROM ITEM; [42000-200]
+2020-03-10 21:22:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEM" already exists; SQL statement:
+CREATE TABLE ITEM (ID int auto_increment primary key, ITEM_NUMBER int, NAME varchar(255), DESCRIPTION varchar(255), AVAILABLE_QUANTITY int, UNIT_PRICE double) [42101-200]
+2020-03-10 21:22:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]'
+
+SELECT * FROM ITEM;"; SQL statement:
+'
+
+SELECT * FROM ITEM; [42000-200]
+2020-03-10 21:22:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP TABLES[*] ITEM"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP TABLES ITEM [42001-200]
+2020-03-10 21:22:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ITEM" already exists; SQL statement:
+CREATE TABLE ITEM (ID int auto_increment primary key, ITEM_NUMBER int, NAME varchar(255), DESCRIPTION varchar(255), AVAILABLE_QUANTITY int, UNIT_PRICE double) [42101-200]
+2020-03-10 21:22:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]'
+
+SELECT * FROM ITEM;
+
+DROP TABLE"; SQL statement:
+'
+
+SELECT * FROM ITEM;
+
+DROP TABLE [42000-200]
+2020-03-10 21:22:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]'
+
+SELECT * FROM ITEM;
+
+DROP TABLE"; SQL statement:
+'
+
+SELECT * FROM ITEM;
+
+DROP TABLE [42000-200]
+2020-03-10 21:22:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]'
+
+SELECT * FROM ITEM;"; SQL statement:
+'
+
+SELECT * FROM ITEM; [42000-200]
