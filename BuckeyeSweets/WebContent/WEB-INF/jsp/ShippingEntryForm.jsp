@@ -11,19 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css" >
     <meta charset="ISO-8859-1">
     <title>Shipping Entry Form</title>
-<!--  
-    <style>
-      table {
-      border-collapse:collapse;
-      width: 500px;
-      }
-      td, th { 
-      padding: 10px; 
-      border-bottom: 2px solid red; 
-      text-align: center;
-      }
-    </style>
--->
+
 </head>
 
 <body>

@@ -12,10 +12,8 @@ public class Converter {
 
 		List<LineItem> lineItems = new ArrayList<LineItem>();
 		for (Item item : items) {
-			LineItem lineItem = new LineItem();
-			lineItem.setName(item.getName());
-			lineItem.setPrice(item.getPrice());
-			lineItem.setQuantity(item.getQuantity());
+			LineItem lineItem = new LineItem(item);
+
 			lineItems.add(lineItem);
 
 		}
@@ -27,9 +25,9 @@ public class Converter {
 		List<Item> myItems = new ArrayList<Item>();
 		for (LineItem lineItem : lineItems) {
 			Item newItem = new Item();
-			newItem.setName(lineItem.getName());
-			newItem.setPrice(lineItem.getPrice());
-			newItem.setQuantity(lineItem.getQuantity());
+			newItem.setName(lineItem.getItemName());
+			newItem.setUnitPrice(lineItem.getPrice());
+			newItem.setAvailableQuantity(lineItem.getQuantityRequested());
 			myItems.add(newItem);
 		}
 

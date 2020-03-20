@@ -2,80 +2,106 @@ package edu.osu.cse5234.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import edu.osu.cse5234.business.view.Item;
+
+@Entity
+@Table(name = "CUSTOMER_ORDER_LINE_ITEM")
 
 public class LineItem implements Serializable {
 
 	/**
 	 */
 	private static final long serialVersionUID = 6836946300494613018L;
-	private String name;
+	private int id;
+	private int itemNumber;
+	private String itemName;
 	private Double price;
-	private Integer quantity;
+	private Integer quantityRequested;
+	private String description;
 
-	/**
-	 * 
-	 */
+
 	public LineItem() {
 	}
 
 	public LineItem(Item item) {
-		name = item.getName();
-		price = item.getPrice();
-		quantity = 0;
+		id = item.getId();
+		itemNumber = item.getItemNumber();
+		itemName = item.getName();
+		price = item.getUnitPrice();
+		quantityRequested = 0;
+		description = item.getDescription();
 	}
 
-	/**
-	 * @param name
-	 * @param price
-	 * @param quantity
-	 */
-	public LineItem(String name, Double price, Integer quantity) {
-		this.name = name;
+	public LineItem(int id, int itemNumber, String itemName, Double price, Integer quantityRequested) {
+		this.id = id;
+		this.itemNumber = itemNumber;
+		this.itemName = itemName;
 		this.price = price;
-		this.quantity = quantity;
+		this.quantityRequested = quantityRequested;
 	}
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	public int getId() {
+		return id;
 	}
 
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	/**
-	 * @return the price
-	 */
+	@Column(name = "ITEM_NUMBER")
+	public int getItemNumber() {
+		return itemNumber;
+	}
+
+	public void setItemNumber(int itemNumber) {
+		this.itemNumber = itemNumber;
+	}
+
+	@Column(name = "ITEM_NAME")
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String name) {
+		this.itemName = name;
+	}
+
+	@Column(name = "QUANTITY")
+	public Integer getQuantityRequested() {
+		return quantityRequested;
+	}
+
+	public void setQuantityRequested(Integer quantityRequested) {
+		this.quantityRequested = quantityRequested;
+	}
+
+	@Transient
 	public Double getPrice() {
 		return price;
 	}
 
-	/**
-	 * @param price the price to set
-	 */
 	public void setPrice(Double price) {
 		this.price = price;
 	}
 
-	/**
-	 * @return the quantity
-	 */
-	public Integer getQuantity() {
-		return quantity;
+	@Transient
+	public String getDescription() {
+		return description;
 	}
 
-	/**
-	 * @param quantity the quantity to set
-	 */
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

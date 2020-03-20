@@ -5,7 +5,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="edu.osu.cse5234.model.Order"%>
 <%@ page import="edu.osu.cse5234.model.PaymentInfo"%>
-<%@ page import="edu.osu.cse5234.controller.ShippingInfo"%>
+<%@ page import="edu.osu.cse5234.model.ShippingInfo"%>
 <%@ page import="edu.osu.cse5234.business.view.Item"%>
 <%@ page import="edu.osu.cse5234.model.LineItem"%>
 
@@ -34,11 +34,11 @@
 			double totalAmount = 0;
 			for (int i = 0; i < items.size(); i++) {
 		LineItem item = items.get(i);
-		String name = item.getName();
+		String name = item.getItemName();
 		Double price = item.getPrice();
-		Integer quantity = item.getQuantity();
+		Integer quantity = item.getQuantityRequested();
 
-		if (item.getQuantity() > 0) {
+		if (item.getQuantityRequested() > 0) {
 			totalAmount += price * quantity;
 			response.getWriter().println("<b>Item Name: </b>" + name + "| <b>Price Per Item: </b>$" + price
 			+ "| <b>Quantity: </b>" + quantity + "<br/>");
@@ -62,11 +62,14 @@
 			ShippingInfo shippingInfo = (ShippingInfo) request.getSession().getAttribute("shippingInfo");
 
 			response.getWriter()
-			.println("<br/><br/><h2>Your Shipping Information: </h2>" + "<br/><b>Name: </b>"
-			+ shippingInfo.getName() + "<br/><b>Address (Line 1): </b>" + shippingInfo.getAddressLine1()
-			+ "<br/><b>Address (Line 2): </b>" + shippingInfo.getAddressLine2() + "<br/><b>City: </b>"
-			+ shippingInfo.getCity() + "<br/><b>State: </b>" + shippingInfo.getState()
-			+ "<br/><b>Country: </b>" + shippingInfo.getZip());
+			.println("<br/><br/><h2>Your Shipping Information: </h2>" 
+			+ "<br/><b>Name: </b>" + shippingInfo.getName() 
+			+ "<br/><b>Address (Line 1): </b>" + shippingInfo.getAddressLine1()
+			+ "<br/><b>Address (Line 2): </b>" + shippingInfo.getAddressLine2() 
+			+ "<br/><b>City: </b>" + shippingInfo.getCity() 
+			+ "<br/><b>State: </b>" + shippingInfo.getState()
+			+ "<br/><b>Zip: </b>" + shippingInfo.getZip()
+			+ "<br/><b>Country: </b>" + shippingInfo.getCountry());
 			response.getWriter().println("<br/>-------------------------------------------------");
 	%>
 	<br />

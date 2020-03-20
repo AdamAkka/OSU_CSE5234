@@ -1,93 +1,85 @@
 package edu.osu.cse5234.model;
 
 import java.io.Serializable;
-//import java.util.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "PAYMENT_INFO")
 
 public class PaymentInfo implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1828854161233751193L;
 	
+	private int id;
 	private String cardNumber;
 	private String expirationDate;
 	private String ccvCode;
 	private String cardHolderName;
 	
-	/**
-	 * 
-	 */
 	public PaymentInfo() {
 	}
 
-	/**
-	 * @param cardNumber
-	 * @param expirationDate
-	 * @param ccvCode
-	 * @param cardHolderName
-	 */
-	public PaymentInfo(String cardNumber, String expirationDate, String ccvCode, String cardHolderName) {
+	public PaymentInfo(int id, String cardNumber, String expirationDate, String ccvCode, String cardHolderName) {
+		this.id = id;
 		this.cardNumber = cardNumber;
 		this.expirationDate = expirationDate;
 		this.ccvCode = ccvCode;
 		this.cardHolderName = cardHolderName;
 	}
 
-	/**
-	 * @return the cardNumber
-	 */
-	public String getCardNumber() {
-		return cardNumber;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	public int getId() {
+		return id;
 	}
 
-	/**
-	 * @param cardNumber the cardNumber to set
-	 */
-	public void setCardNumber(String cardNumber) {
-		this.cardNumber = cardNumber;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	/**
-	 * @return the expirationDate
-	 */
-	public String getExpirationDate() {
-		return expirationDate;
-	}
-
-	/**
-	 * @param expirationDate the expirationDate to set
-	 */
-	public void setExpirationDate(String expirationDate) {
-		this.expirationDate = expirationDate;
-	}
-
-	/**
-	 * @return the ccvCode
-	 */
-	public String getCcvCode() {
-		return ccvCode;
-	}
-
-	/**
-	 * @param ccvCode the ccvCode to set
-	 */
-	public void setCcvCode(String ccvCode) {
-		this.ccvCode = ccvCode;
-	}
-
-	/**
-	 * @return the cardHolderName
-	 */
+	
+	@Column(name = "HOLDER_NAME")
 	public String getCardHolderName() {
 		return cardHolderName;
 	}
 
-	/**
-	 * @param cardHolderName the cardHolderName to set
-	 */
 	public void setCardHolderName(String cardHolderName) {
 		this.cardHolderName = cardHolderName;
 	}
+	
+	@Column(name = "CARD_NUM")
+	public String getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	@Column(name = "EXP_DATE")
+	public String getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(String expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
+	@Column(name = "CVV")
+	public String getCcvCode() {
+		return ccvCode;
+	}
+
+	public void setCcvCode(String ccvCode) {
+		this.ccvCode = ccvCode;
+	}
+
 
 }
