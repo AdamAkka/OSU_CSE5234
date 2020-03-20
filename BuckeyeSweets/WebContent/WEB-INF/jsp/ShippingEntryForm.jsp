@@ -57,6 +57,12 @@
                     <form:input path="zip" />
                 </td>
             </tr>
+            <tr>
+                <td>Country</td>
+                <td>
+                    <form:input path="country" />
+                </td>
+            </tr> 
         </table>
         
             <tr>
