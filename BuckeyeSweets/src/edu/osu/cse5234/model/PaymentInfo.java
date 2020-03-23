@@ -16,11 +16,23 @@ public class PaymentInfo implements Serializable {
 	
 	private static final long serialVersionUID = 1828854161233751193L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private int id;
-	private String cardNumber;
-	private String expirationDate;
-	private String ccvCode;
+	
+	@Column(name = "HOLDER_NAME")
 	private String cardHolderName;
+	
+	@Column(name = "CARD_NUM")
+	private String cardNumber;
+	
+	@Column(name = "EXP_DATE")
+	private String expirationDate;
+	
+	@Column(name = "CVV")
+	private String ccvCode;
+	
 	
 	public PaymentInfo() {
 	}
@@ -34,9 +46,6 @@ public class PaymentInfo implements Serializable {
 	}
 
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
 	public int getId() {
 		return id;
 	}
@@ -45,7 +54,7 @@ public class PaymentInfo implements Serializable {
 		this.id = id;
 	}
 	
-	@Column(name = "HOLDER_NAME")
+	
 	public String getCardHolderName() {
 		return cardHolderName;
 	}
@@ -54,7 +63,7 @@ public class PaymentInfo implements Serializable {
 		this.cardHolderName = cardHolderName;
 	}
 	
-	@Column(name = "CARD_NUM")
+	
 	public String getCardNumber() {
 		return cardNumber;
 	}
@@ -63,7 +72,7 @@ public class PaymentInfo implements Serializable {
 		this.cardNumber = cardNumber;
 	}
 
-	@Column(name = "EXP_DATE")
+	
 	public String getExpirationDate() {
 		return expirationDate;
 	}
@@ -72,7 +81,7 @@ public class PaymentInfo implements Serializable {
 		this.expirationDate = expirationDate;
 	}
 
-	@Column(name = "CVV")
+	
 	public String getCcvCode() {
 		return ccvCode;
 	}

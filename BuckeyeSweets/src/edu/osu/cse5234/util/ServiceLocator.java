@@ -12,7 +12,7 @@ public class ServiceLocator {
 		try {
 			return (OrderProcessingServiceBean) InitialContext.doLookup(
 					"java:global/BuckeyeSweets/OrderProcessingServiceBean!edu.osu.cse5234.business.OrderProcessingServiceBean");
-			
+					
 			
 		} catch (NamingException ne) {
 			throw new RuntimeException(ne);

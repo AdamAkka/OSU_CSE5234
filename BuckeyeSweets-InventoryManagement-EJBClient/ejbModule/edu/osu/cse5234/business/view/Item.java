@@ -15,14 +15,27 @@ import javax.persistence.Table;
 public class Item implements Serializable {
 
 	private static final long serialVersionUID = -238066108300505539L;
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private Integer id;
+	
+	@Column(name = "ITEM_NUMBER")
 	private Integer itemNumber;
+	
+	@Column(name = "NAME")
 	private String name;
+	
+	@Column(name = "DESCRIPTION")
 	private String description;
-//	private Integer quantity;
+	
+	@Column(name = "AVAILABLE_QUANTITY")
 	private Integer availableQuantity;
+	
+	@Column(name = "UNIT_PRICE")
 	private Double unitPrice;
+	
 
 	public Item() {
 	}
@@ -32,20 +45,12 @@ public class Item implements Serializable {
 		this.itemNumber = itemNumber;
 		this.name = name;
 		this.description = description;
-//		this.quantity = quantity;
 		this.availableQuantity = availableQuantity;
 		this.unitPrice = unitPrice;
 	}
 
-/*	public Item(Item item) {
-		name = item.getName();
-		unitPrice = item.getUnitPrice();
-		quantity = 0;
-	}*/
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
+	
 	public Integer getId() {
 		return id;
 	}
@@ -54,7 +59,7 @@ public class Item implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "ITEM_NUMBER")
+	
 	public Integer getItemNumber() {
 		return itemNumber;
 	}
@@ -63,7 +68,7 @@ public class Item implements Serializable {
 		this.itemNumber = itemNumber;
 	}
 
-	@Column(name = "NAME")
+	
 	public String getName() {
 		return name;
 	}
@@ -72,7 +77,7 @@ public class Item implements Serializable {
 		this.name = name;
 	}
 
-	@Column(name = "DESCRIPTION")
+	
 	public String getDescription() {
 		return description;
 	}
@@ -81,7 +86,7 @@ public class Item implements Serializable {
 		this.description = description;
 	}
 
-	@Column(name = "AVAILABLE_QUANTITY")
+	
 	public Integer getAvailableQuantity() {
 		return availableQuantity;
 	}
@@ -91,18 +96,6 @@ public class Item implements Serializable {
 	}
 	
 	
-//	@Column(name = "AVAILABLE_QUANTITY")
-//	@Transient
-//	public Integer getQuantity() {
-//		return quantity;
-//	}
-//
-//	public void setQuantity(Integer quantity) {
-//		this.quantity = quantity;
-//	}
-
-
-	@Column(name = "UNIT_PRICE")
 	public Double getUnitPrice() {
 		return unitPrice;
 	}
@@ -110,5 +103,5 @@ public class Item implements Serializable {
 	public void setUnitPrice(Double unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-
+	
 }

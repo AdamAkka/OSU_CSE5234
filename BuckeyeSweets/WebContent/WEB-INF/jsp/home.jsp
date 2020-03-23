@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/homestyle.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/homestyle.css">
+<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/images/buckeyeFavicon.png">
 <meta charset="ISO-8859-1">
 <title>Home</title>
 </head>

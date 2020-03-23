@@ -25,22 +25,34 @@ public class Purchase {
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		Order order = new Order();
+//		Order order = (Order)request.getSession().getAttribute("order");
 	
 		InventoryService inventoryService = ServiceLocator.getInventoryService();
 		Inventory inventory = inventoryService.getAvailableInventory();
 		
-
-		order.setMyItemList(Converter.convert (inventory.getItemList()));
+		order.setMyItemList(Converter.convertItemToLineItem (inventory.getItemList()));
 
 		request.setAttribute("order", order);
+//		request.getSession().setAttribute("order", order);
 
 		return "OrderEntryForm";
 	}
 
 	@RequestMapping(path = "/submitItems", method = RequestMethod.POST)
 	public String submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
+		
+//		request.setAttribute("order", order);		
 		request.getSession().setAttribute("order", order);
 
+//		myOrder has Customer name and email while Order has the other info
+		
+		Order myOrder = (Order)request.getSession().getAttribute("order");
+		order.setCustomerName(myOrder.getCustomerName());
+		order.setEmailAddress(myOrder.getEmailAddress());
+		
+		request.getSession().setAttribute("order", order);
+//		request.setAttribute("order", order);
+		
 		OrderProcessingServiceBean orderProcessingServiceBean = ServiceLocator.getOrderProcessingService();
 
 		if (orderProcessingServiceBean.validateItemAvailability(order)) {
@@ -66,6 +78,11 @@ public class Purchase {
 	@RequestMapping(path = "/submitPayment", method = RequestMethod.POST)
 	public String submitPayment(@ModelAttribute("paymentInfo") PaymentInfo paymentInfo, HttpServletRequest request)
 			throws Exception {
+		
+		Order order = (Order)request.getSession().getAttribute("order");
+		order.setPaymentInfo(paymentInfo);
+		request.getSession().setAttribute("order", order);
+		
 		request.getSession().setAttribute("paymentInfo", paymentInfo);
 		return "redirect:/purchase/shippingEntry";
 	}
@@ -79,6 +96,11 @@ public class Purchase {
 	@RequestMapping(path = "/submitShipping", method = RequestMethod.POST)
 	public String submitShipping(@ModelAttribute("shippingInfo") ShippingInfo shippingInfo, HttpServletRequest request)
 			throws Exception {
+		
+		Order order = (Order)request.getSession().getAttribute("order");
+		order.setShippingInfo(shippingInfo);
+		request.getSession().setAttribute("order", order);
+		
 		request.getSession().setAttribute("shippingInfo", shippingInfo);
 		return "redirect:/purchase/viewOrder";
 	}
@@ -92,6 +114,9 @@ public class Purchase {
 	@RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
 	public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) throws Exception {
 
+//		public String confirmOrder(HttpServletRequest request) {
+//		Order order = (Order)request.getSession().getAttribute("order");
+		
 		OrderProcessingServiceBean orderProcessingServiceBean = ServiceLocator.getOrderProcessingService();
 
 		String confirmationCode = orderProcessingServiceBean.processOrder(order);

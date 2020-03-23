@@ -43,6 +43,6 @@ public class OrderProcessingServiceBean {
 	public boolean validateItemAvailability(Order order) {
 
 		InventoryService inventoryService = ServiceLocator.getInventoryService();
-		return inventoryService.validateQuantity(Converter.converting(order.getMyItemList()));
+		return inventoryService.validateQuantity(Converter.convertLineItemToItem(order.getMyItemList()));
 	}
 }

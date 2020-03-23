@@ -42,12 +42,11 @@ public class InventoryServiceBean implements InventoryService {
 	@Override
 	public boolean validateQuantity(List<Item> lineItems) {
 
-/*		for (Item orderItem : lineItems) {
-			if (orderItem.getQuantity() > 0) {
-				
+/*		for (Item orderItem : lineItems) {	
+			if (orderItems.getRequestedQuantity() > 0) {
 				for (Item inventoryItem : itemList) {
-					if (orderItem.getName().equals(inventoryItem.getName())) {
-						if (orderItem.getAvailableQuantity() > inventoryItem.getAvailableQuantity()) {
+					if (orderItems.getId().equals(inventoryItem.getId())) {
+						if (orderItems.getRequestedQuantity() > inventoryItem.getAvailableQuantity()) {
 							return false;
 						}
 					}
