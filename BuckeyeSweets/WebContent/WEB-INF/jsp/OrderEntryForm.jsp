@@ -43,7 +43,7 @@
 					<td>${item.description} <form:input path="myItemList[${loop.index}].description" type="hidden" name="myItemList.get(${loop.index}).description" value="${item.description}" /></td>
 					<td>$${item.price} <form:input path="myItemList[${loop.index}].price" type="hidden" name="myItemList.get(${loop.index}).price" value="${item.price}" /></td>
 					<td>${item.availableQuantity} <form:input path="myItemList[${loop.index}].availableQuantity" type="hidden" name="myItemList.get(${loop.index}).availableQuantity" value="${item.availableQuantity}" /></td>
-					<td><form:input id="quantityRequested${loop.count}" path="myItemList[${loop.index}].quantityRequested" name="myItemList[${loop.index}].quantityRequested" value="${myItemList.quantityRequested}" onchange="checkQuantity(${loop.count})" style="text-align:center"/></td>
+					<td><form:input id="quantityRequested${loop.count}" path="myItemList[${loop.index}].quantityRequested" name="myItemList[${loop.index}].quantityRequested" value="${item.quantityRequested}" onchange="checkQuantity(${loop.count})" style="text-align:center"/></td>
 
 <!--
 					<td>${item.itemNumber} <input type="hidden" name="myItemList.get(${loop.index}).itemNumber" value="${item.itemNumber}" /></td>

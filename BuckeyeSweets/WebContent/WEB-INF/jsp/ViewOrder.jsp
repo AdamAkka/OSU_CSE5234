@@ -60,7 +60,7 @@
 
 		ShippingInfo shippingInfo = (ShippingInfo) request.getSession().getAttribute("shippingInfo");
 
-		response.getWriter().println("<br/><br/><h2>Your Shipping Information: </h2>" + "<br/><b>Name: </b>"
+		response.getWriter().println("<br/><br/><h2>Your Shipping Information: </h2>" + "<br/><b>Email: </b>"
 				+ shippingInfo.getEmail() + "<br/><b>Address (Line 1): </b>" + shippingInfo.getAddressLine1()
 				+ "<br/><b>Address (Line 2): </b>" + shippingInfo.getAddressLine2() + "<br/><b>City: </b>"
 				+ shippingInfo.getCity() + "<br/><b>State: </b>" + shippingInfo.getState() + "<br/><b>Zip: </b>"
