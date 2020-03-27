@@ -5,9 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css">
-<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/images/buckeyeFavicon.png">
-<script type="text/javascript" src="${pageContext.request.contextPath}/jscript/checkUserInput.js" ></script>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/mystyle.css">
+<link rel="icon" type="image/png"
+	href="${pageContext.request.contextPath}/images/buckeyeFavicon.png">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/jscript/checkUserInput.js"></script>
 <meta charset="ISO-8859-1">
 <title>Order Entry Form</title>
 
@@ -38,20 +41,31 @@
 			<c:forEach items="${order.myItemList}" var="item" varStatus="loop">
 				<tr>
 					<td>${loop.count}</td>
-					<td>${item.itemNumber} <form:input path="myItemList[${loop.index}].itemNumber" type="hidden" name="myItemList.get(${loop.index}).itemNumber" value="${item.itemNumber}" /></td>
-					<td>${item.itemName} <form:input path="myItemList[${loop.index}].itemName" type="hidden" name="myItemList.get(${loop.index}).itemName" value="${item.itemName}" /></td>
-					<td>${item.description} <form:input path="myItemList[${loop.index}].description" type="hidden" name="myItemList.get(${loop.index}).description" value="${item.description}" /></td>
-					<td>$${item.price} <form:input path="myItemList[${loop.index}].price" type="hidden" name="myItemList.get(${loop.index}).price" value="${item.price}" /></td>
-					<td>${item.availableQuantity} <form:input path="myItemList[${loop.index}].availableQuantity" type="hidden" name="myItemList.get(${loop.index}).availableQuantity" value="${item.availableQuantity}" /></td>
-					<td><form:input id="quantityRequested${loop.count}" path="myItemList[${loop.index}].quantityRequested" name="myItemList[${loop.index}].quantityRequested" value="${item.quantityRequested}" onchange="checkQuantity(${loop.count})" style="text-align:center"/></td>
+					<td>${item.itemNumber}<form:input
+							path="myItemList[${loop.index}].itemNumber" type="hidden"
+							name="myItemList.get(${loop.index}).itemNumber"
+							value="${item.itemNumber}" /></td>
+					<td>${item.itemName}<form:input
+							path="myItemList[${loop.index}].itemName" type="hidden"
+							name="myItemList.get(${loop.index}).itemName"
+							value="${item.itemName}" /></td>
+					<td>${item.description}<form:input
+							path="myItemList[${loop.index}].description" type="hidden"
+							name="myItemList.get(${loop.index}).description"
+							value="${item.description}" /></td>
+					<td>$${item.price} <form:input
+							path="myItemList[${loop.index}].price" type="hidden"
+							name="myItemList.get(${loop.index}).price" value="${item.price}" /></td>
+					<td>${item.availableQuantity}<form:input
+							path="myItemList[${loop.index}].availableQuantity" type="hidden"
+							name="myItemList.get(${loop.index}).availableQuantity"
+							value="${item.availableQuantity}" /></td>
+					<td><form:input id="quantityRequested${loop.count}"
+							path="myItemList[${loop.index}].quantityRequested"
+							name="myItemList[${loop.index}].quantityRequested"
+							value="${item.quantityRequested}"
+							onchange="checkQuantity(${loop.count})" style="text-align:center" /></td>
 
-<!--
-					<td>${item.itemNumber} <input type="hidden" name="myItemList.get(${loop.index}).itemNumber" value="${item.itemNumber}" /></td>
-					<td>${item.itemName} <input type="hidden" name="myItemList.get(${loop.index}).itemName" value="${item.itemName}" /></td>
-					<td>${item.description} <input type="hidden" name="myItemList.get(${loop.index}).description" value="${item.description}" /></td>
-					<td>$${item.price} <input type="hidden" name="myItemList.get(${loop.index}).price" value="${item.price}" /></td>
-					<td><input name="myItemList[${loop.index}].quantityRequested" value="${item.quantityRequested}" style="text-align:center" /></td>
--->
 				</tr>
 			</c:forEach>
 

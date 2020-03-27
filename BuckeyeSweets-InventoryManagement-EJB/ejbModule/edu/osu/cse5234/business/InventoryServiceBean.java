@@ -12,7 +12,6 @@ import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
 
-
 /**
  * Session Bean implementation class InventoryBean
  */
@@ -23,7 +22,7 @@ public class InventoryServiceBean implements InventoryService {
 	@PersistenceContext
 	private EntityManager entityManager;
 	private String MY_QUERY = "Select i from Item i";
-	
+
 	/**
 	 * Default constructor.
 	 */
@@ -42,17 +41,14 @@ public class InventoryServiceBean implements InventoryService {
 	@Override
 	public boolean validateQuantity(List<Item> lineItems) {
 
-/*		for (Item orderItem : lineItems) {	
-			if (orderItems.getRequestedQuantity() > 0) {
-				for (Item inventoryItem : itemList) {
-					if (orderItems.getId().equals(inventoryItem.getId())) {
-						if (orderItems.getRequestedQuantity() > inventoryItem.getAvailableQuantity()) {
-							return false;
-						}
-					}
-				}
-			}
-		}*/
+		/*
+		 * public boolean validateQuantity(List<LineItem> lineItems) { for (LineItem
+		 * orderItem : lineItems) { if (orderItem.getRequestedQuantity() > 0) { for
+		 * (Item inventoryItem : itemList) { if
+		 * (orderItem.getId().equals(inventoryItem.getId())) { if
+		 * (orderItem.getRequestedQuantity() > inventoryItem.getAvailableQuantity()) {
+		 * return false; } } } } }
+		 */
 
 		return true;
 	}

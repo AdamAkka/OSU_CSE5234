@@ -13,27 +13,26 @@ import javax.persistence.Table;
 @Table(name = "PAYMENT_INFO")
 
 public class PaymentInfo implements Serializable {
-	
+
 	private static final long serialVersionUID = 1828854161233751193L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private int id;
-	
+
 	@Column(name = "HOLDER_NAME")
 	private String cardHolderName;
-	
+
 	@Column(name = "CARD_NUM")
 	private String cardNumber;
-	
+
 	@Column(name = "EXP_DATE")
 	private String expirationDate;
-	
+
 	@Column(name = "CVV")
 	private String ccvCode;
-	
-	
+
 	public PaymentInfo() {
 	}
 
@@ -45,7 +44,6 @@ public class PaymentInfo implements Serializable {
 		this.cardHolderName = cardHolderName;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
@@ -53,8 +51,7 @@ public class PaymentInfo implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
+
 	public String getCardHolderName() {
 		return cardHolderName;
 	}
@@ -62,8 +59,7 @@ public class PaymentInfo implements Serializable {
 	public void setCardHolderName(String cardHolderName) {
 		this.cardHolderName = cardHolderName;
 	}
-	
-	
+
 	public String getCardNumber() {
 		return cardNumber;
 	}
@@ -72,7 +68,6 @@ public class PaymentInfo implements Serializable {
 		this.cardNumber = cardNumber;
 	}
 
-	
 	public String getExpirationDate() {
 		return expirationDate;
 	}
@@ -81,7 +76,6 @@ public class PaymentInfo implements Serializable {
 		this.expirationDate = expirationDate;
 	}
 
-	
 	public String getCcvCode() {
 		return ccvCode;
 	}
@@ -89,6 +83,5 @@ public class PaymentInfo implements Serializable {
 	public void setCcvCode(String ccvCode) {
 		this.ccvCode = ccvCode;
 	}
-
 
 }

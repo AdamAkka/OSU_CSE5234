@@ -22,15 +22,15 @@ public class Converter {
 
 		List<Item> myItems = new ArrayList<Item>();
 		for (LineItem lineItem : lineItems) {
-			
+
 			Item newItem = new Item();
-			
+
 			newItem.setItemNumber(lineItem.getItemNumber());
 			newItem.setName(lineItem.getItemName());
 			newItem.setUnitPrice(lineItem.getPrice());
 			newItem.setAvailableQuantity(lineItem.getQuantityRequested());
 			newItem.setDescription(lineItem.getDescription());
-			
+
 			myItems.add(newItem);
 		}
 

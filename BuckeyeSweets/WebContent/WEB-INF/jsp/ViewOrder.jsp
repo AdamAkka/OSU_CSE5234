@@ -13,22 +13,22 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mystyle.css">
-	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/images/buckeyeFavicon.png">
-	<meta charset="ISO-8859-1">
-	<title>View Order</title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/mystyle.css">
+<link rel="icon" type="image/png"
+	href="${pageContext.request.contextPath}/images/buckeyeFavicon.png">
+<meta charset="ISO-8859-1">
+<title>View Order</title>
 </head>
 
 <body style="text-align: center">
-	
+
 	<%
 		response.getWriter().println("<br/><h1>Your Order Summary :</h1>");
 		Order order = (Order) request.getSession().getAttribute("order");
 		List<LineItem> items = order.getMyItemList();
 
 		///////////////////////////////////////////////////////////////////////////////	
-
-		//		response.getWriter().println("<b>Item Name	&emsp;	Price Per Item	&emsp;	Quantity</b><br/>");
 
 		double totalAmount = 0;
 		for (int i = 0; i < items.size(); i++) {

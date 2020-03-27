@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table; 
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "ITEM")
@@ -15,32 +15,32 @@ import javax.persistence.Table;
 public class Item implements Serializable {
 
 	private static final long serialVersionUID = -238066108300505539L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Integer id;
-	
+
 	@Column(name = "ITEM_NUMBER")
 	private Integer itemNumber;
-	
+
 	@Column(name = "NAME")
 	private String name;
-	
+
 	@Column(name = "DESCRIPTION")
 	private String description;
-	
+
 	@Column(name = "AVAILABLE_QUANTITY")
 	private Integer availableQuantity;
-	
+
 	@Column(name = "UNIT_PRICE")
 	private Double unitPrice;
-	
 
 	public Item() {
 	}
 
-	public Item(Integer id, Integer itemNumber, String name, String description, Integer availableQuantity, Double unitPrice) {
+	public Item(Integer id, Integer itemNumber, String name, String description, Integer availableQuantity,
+			Double unitPrice) {
 		this.id = id;
 		this.itemNumber = itemNumber;
 		this.name = name;
@@ -49,8 +49,6 @@ public class Item implements Serializable {
 		this.unitPrice = unitPrice;
 	}
 
-
-	
 	public Integer getId() {
 		return id;
 	}
@@ -59,7 +57,6 @@ public class Item implements Serializable {
 		this.id = id;
 	}
 
-	
 	public Integer getItemNumber() {
 		return itemNumber;
 	}
@@ -68,7 +65,6 @@ public class Item implements Serializable {
 		this.itemNumber = itemNumber;
 	}
 
-	
 	public String getName() {
 		return name;
 	}
@@ -77,7 +73,6 @@ public class Item implements Serializable {
 		this.name = name;
 	}
 
-	
 	public String getDescription() {
 		return description;
 	}
@@ -86,7 +81,6 @@ public class Item implements Serializable {
 		this.description = description;
 	}
 
-	
 	public Integer getAvailableQuantity() {
 		return availableQuantity;
 	}
@@ -94,8 +88,7 @@ public class Item implements Serializable {
 	public void setAvailableQuantity(Integer availableQuantity) {
 		this.availableQuantity = availableQuantity;
 	}
-	
-	
+
 	public Double getUnitPrice() {
 		return unitPrice;
 	}
@@ -103,5 +96,5 @@ public class Item implements Serializable {
 	public void setUnitPrice(Double unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-	
+
 }

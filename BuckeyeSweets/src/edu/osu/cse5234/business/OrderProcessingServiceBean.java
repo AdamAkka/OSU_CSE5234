@@ -21,8 +21,7 @@ public class OrderProcessingServiceBean {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
-	
+
 	public OrderProcessingServiceBean() {
 		// TODO Auto-generated constructor stub
 	}
@@ -31,7 +30,7 @@ public class OrderProcessingServiceBean {
 
 		entityManager.persist(order);
 		entityManager.flush();
-		
+
 		int maximum = 99999999;
 		int minimum = 10000000;
 		Random random = new Random();

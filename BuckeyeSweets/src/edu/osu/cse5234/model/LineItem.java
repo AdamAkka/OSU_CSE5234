@@ -24,26 +24,25 @@ public class LineItem implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private int id;
-	
+
 	@Column(name = "ITEM_NUMBER")
 	private int itemNumber;
-	
+
 	@Column(name = "ITEM_NAME")
 	private String itemName;
-	
+
 	@Column(name = "QUANTITY")
 	private Integer quantityRequested;
-	
+
 	@Transient
 	private Double price;
-	
+
 	@Transient
 	private String description;
-	
+
 	@Transient
 	private Integer availableQuantity;
-	
-	
+
 	public LineItem() {
 	}
 
@@ -65,7 +64,6 @@ public class LineItem implements Serializable {
 		this.quantityRequested = quantityRequested;
 	}
 
-
 	public int getId() {
 		return id;
 	}
@@ -74,7 +72,6 @@ public class LineItem implements Serializable {
 		this.id = id;
 	}
 
-	
 	public int getItemNumber() {
 		return itemNumber;
 	}
@@ -83,7 +80,6 @@ public class LineItem implements Serializable {
 		this.itemNumber = itemNumber;
 	}
 
-	
 	public String getItemName() {
 		return itemName;
 	}
@@ -92,7 +88,6 @@ public class LineItem implements Serializable {
 		this.itemName = name;
 	}
 
-	
 	public Integer getQuantityRequested() {
 		return quantityRequested;
 	}
@@ -101,7 +96,6 @@ public class LineItem implements Serializable {
 		this.quantityRequested = quantityRequested;
 	}
 
-	
 	public Double getPrice() {
 		return price;
 	}
@@ -110,7 +104,6 @@ public class LineItem implements Serializable {
 		this.price = price;
 	}
 
-	
 	public String getDescription() {
 		return description;
 	}
@@ -118,15 +111,13 @@ public class LineItem implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public Integer getAvailableQuantity() {
 		return availableQuantity;
 	}
 
 	public void setAvailableQuantity(Integer availableQuantity) {
 		this.availableQuantity = availableQuantity;
-	}	
-	
-	
+	}
 
 }

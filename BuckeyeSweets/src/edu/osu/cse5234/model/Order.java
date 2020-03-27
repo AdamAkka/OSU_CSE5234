@@ -21,31 +21,31 @@ import javax.persistence.Table;
 public class Order implements Serializable {
 
 	private static final long serialVersionUID = 696089912823266788L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private int id;
-	
+
 	@Column(name = "CUSTOMER_NAME")
 	private String customerName;
-	
+
 	@Column(name = "CUSTOMER_EMAIL")
 	private String emailAddress;
-	
+
 	@Column(name = "STATUS")
-	private String status;
-	
+	private String status = "New";
+
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="CUSTOMER_ORDER_ID_FK")
+	@JoinColumn(name = "CUSTOMER_ORDER_ID_FK")
 	private List<LineItem> myItemList;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="PAYMENT_INFO_ID_FK")
+	@JoinColumn(name = "PAYMENT_INFO_ID_FK")
 	private PaymentInfo paymentInfo;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="SHIPPING_INFO_ID_FK")
+	@JoinColumn(name = "SHIPPING_INFO_ID_FK")
 	private ShippingInfo shippingInfo;
 
 	/**
@@ -54,7 +54,6 @@ public class Order implements Serializable {
 	public Order() {
 		myItemList = new ArrayList<LineItem>();
 	}
-
 
 	public Order(int id, String customerName, String emailAddress, String status, List<LineItem> myItemList,
 			PaymentInfo paymentInfo, ShippingInfo shippingInfo) {
@@ -67,7 +66,6 @@ public class Order implements Serializable {
 		this.shippingInfo = shippingInfo;
 	}
 
-
 	public int getId() {
 		return id;
 	}
@@ -76,7 +74,6 @@ public class Order implements Serializable {
 		this.id = id;
 	}
 
-	
 	public String getCustomerName() {
 		return customerName;
 	}
@@ -85,7 +82,6 @@ public class Order implements Serializable {
 		this.customerName = customerName;
 	}
 
-	
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -94,7 +90,6 @@ public class Order implements Serializable {
 		this.emailAddress = emailAddress;
 	}
 
-	
 	public String getStatus() {
 		return status;
 	}
@@ -102,7 +97,6 @@ public class Order implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
 
 	public PaymentInfo getPaymentInfo() {
 		return paymentInfo;
@@ -112,7 +106,6 @@ public class Order implements Serializable {
 		this.paymentInfo = paymentInfo;
 	}
 
-
 	public ShippingInfo getShippingInfo() {
 		return shippingInfo;
 	}
@@ -120,7 +113,6 @@ public class Order implements Serializable {
 	public void setShippingInfo(ShippingInfo shippingInfo) {
 		this.shippingInfo = shippingInfo;
 	}
-
 
 	public List<LineItem> getMyItemList() {
 		return myItemList;
