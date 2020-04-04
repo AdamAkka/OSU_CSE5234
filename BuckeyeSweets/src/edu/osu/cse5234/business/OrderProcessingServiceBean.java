@@ -19,7 +19,7 @@ import edu.osu.cse5234.model.Order;
 import edu.osu.cse5234.util.Converter;
 import edu.osu.cse5234.util.ServiceLocator;
 
-@Resource(name="jms/emailQCF", lookup="jms/emailQCF", type=ConnectionFactory.class) 
+@Resource(name = "jms/emailQCF", lookup = "jms/emailQCF", type = ConnectionFactory.class)
 
 /**
  * Session Bean implementation class OrderProcessingServiceBean
@@ -27,35 +27,31 @@ import edu.osu.cse5234.util.ServiceLocator;
 @Stateless
 @LocalBean
 public class OrderProcessingServiceBean {
-	
+
 	@Inject
 	@JMSConnectionFactory("java:comp/env/jms/emailQCF")
 	private JMSContext jmsContext;
 
-	@Resource(lookup="jms/emailQ")
+	@Resource(lookup = "jms/emailQ")
 	private Queue queue;
-
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	public OrderProcessingServiceBean() {
-		// TODO Auto-generated constructor stub
 	}
-	
+
 	private void notifyUser() {
 
-		String customerEmail = "adamemail@gmx.com";
-		String message = customerEmail + ":" +
-		       "Your order was successfully submitted. " +
-		     	"You will hear from us when items are shipped. " +
-		      	new Date();
+		String customerEmail = "Adam@BuckeyeSweets.com";
+		String message = customerEmail + ":" + "Your order was successfully submitted. "
+				+ "You will hear from us when items are shipped. " + new Date();
 
 		System.out.println("Sending message: " + message);
 		jmsContext.createProducer().send(queue, message);
 		System.out.println("Message Sent!");
-		}
 
+	}
 
 	public String processOrder(Order order) {
 
@@ -66,6 +62,9 @@ public class OrderProcessingServiceBean {
 		int minimum = 10000000;
 		Random random = new Random();
 		int myRandomNumber = random.nextInt(maximum - minimum + 1) + minimum;
+
+		notifyUser();
+
 		return String.valueOf(myRandomNumber);
 
 	}
