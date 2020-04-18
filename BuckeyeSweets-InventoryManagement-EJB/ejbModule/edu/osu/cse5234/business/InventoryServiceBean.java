@@ -41,14 +41,18 @@ public class InventoryServiceBean implements InventoryService {
 	@Override
 	public boolean validateQuantity(List<Item> lineItems) {
 
-		/*
-		 * public boolean validateQuantity(List<LineItem> lineItems) { for (LineItem
-		 * orderItem : lineItems) { if (orderItem.getRequestedQuantity() > 0) { for
-		 * (Item inventoryItem : itemList) { if
-		 * (orderItem.getId().equals(inventoryItem.getId())) { if
-		 * (orderItem.getRequestedQuantity() > inventoryItem.getAvailableQuantity()) {
-		 * return false; } } } } }
-		 */
+//	public boolean validateQuantity(List<LineItem> lineItems) {
+//		for (LineItem orderItem : lineItems) {
+//			if (orderItem.getRequestedQuantity() > 0) {
+//				for (Item inventoryItem : itemList) {
+//					if (orderItem.getId().equals(inventoryItem.getId())) {
+//						if (orderItem.getRequestedQuantity() > inventoryItem.getAvailableQuantity()) {
+//							return false;
+//						}
+//					}
+//				}
+//			}
+//		}
 
 		return true;
 	}
